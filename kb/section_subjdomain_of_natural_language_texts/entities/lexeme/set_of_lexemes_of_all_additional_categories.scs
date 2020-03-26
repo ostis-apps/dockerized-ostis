@@ -1,0 +1,12 @@
+sc_node_not_relation->set_of_lexemes_of_all_additional_categories;;
+
+set_of_lexemes_of_all_additional_categories => nrel_main_idtf:
+[множество лексем всех дополнительных категорий](*<-lang_ru;;*);
+[set of lexemes of all additional categories](*<-lang_en;;*);;
+
+set_of_lexemes_of_all_additional_categories
+-> set_of_lexemes_of_first_additional_category;
+-> set_of_lexemes_of_second_additional_category;
+-> set_of_lexemes_of_third_additional_category;
+-> set_of_lexemes_of_fourth_additional_category;
+-> set_of_lexemes_of_fifth_additional_category;;

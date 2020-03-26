@@ -1,0 +1,17 @@
+rrel_gramm_tense_present
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [настоящее время'](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_rrel_gramm_tense_present
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (настоящее время)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Настоящее время - время, которое показывает, что действие, выраженное глаголом, совпадает с моментом речи.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

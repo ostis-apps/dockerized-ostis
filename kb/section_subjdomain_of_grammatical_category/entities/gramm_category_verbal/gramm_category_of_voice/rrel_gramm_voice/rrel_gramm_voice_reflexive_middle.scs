@@ -1,0 +1,17 @@
+rrel_gramm_voice_reflexive_middle
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [средневозвратный залог'](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_rrel_gramm_voice_reflexive_middle
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (средневозвратный залог')](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Средневозвратный залог - залог, который имеют глаголы, образованные от переходных глаголов (действительного залога) посредством аффикса -ся. Они выражают действие субъекта, не переходящее на прямой объект, а как бы возвращающееся к самому субъекту, сосредоточенное в нем.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

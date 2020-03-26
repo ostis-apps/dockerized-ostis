@@ -1,0 +1,5 @@
+rrel_gramm_gender_neuter
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [средний род'](* <-lang_ru;; *);;
+

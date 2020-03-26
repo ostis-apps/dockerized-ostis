@@ -1,0 +1,11 @@
+inform
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [извещать](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_initiation;
+
+    <- action_transformation_surroundings_shell;;
+

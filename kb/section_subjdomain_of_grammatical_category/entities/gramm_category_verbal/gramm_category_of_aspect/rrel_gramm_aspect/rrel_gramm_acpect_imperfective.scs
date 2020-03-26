@@ -1,0 +1,19 @@
+rrel_gramm_aspect_imperfective
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [несовершенный вид'](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_rrel_gramm_aspect_imperfective
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (несовершенный вид')](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Несовершенный вид - вид, обозначающий действие в его течении, без указания на предел, границу действия.](* <- lang_ru;; *);;
+				*);;
+		*);;
+
+        
+

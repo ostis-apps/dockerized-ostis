@@ -1,0 +1,17 @@
+numeral_simple
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [простое числительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_numeral_simple
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (простое числительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Простое числительное - числительные с одной непроизводной основой, равной корню.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

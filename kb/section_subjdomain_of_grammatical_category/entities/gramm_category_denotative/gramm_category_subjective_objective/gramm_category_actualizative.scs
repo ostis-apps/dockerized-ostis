@@ -1,0 +1,4 @@
+gramm_category_actualizative
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [актуализационная грамматическая категория](* <-lang_ru;; *);;

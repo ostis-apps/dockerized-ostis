@@ -1,0 +1,4 @@
+action_transformation_surroundings_shell
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [действие преобразования оболочки окружения](* <-lang_ru;; *);;

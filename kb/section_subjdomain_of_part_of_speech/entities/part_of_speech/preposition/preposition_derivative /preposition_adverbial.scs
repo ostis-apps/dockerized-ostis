@@ -1,0 +1,17 @@
+preposition_adverbial
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [наречный предлог](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_preposition_adverbial
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (наречный предлог)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Наречный предлог - это предлог, генетически связанный с наречиями.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

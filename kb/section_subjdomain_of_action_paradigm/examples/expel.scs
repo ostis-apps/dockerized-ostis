@@ -1,0 +1,11 @@
+expel
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [выгонять](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_initiation;
+
+    <- action_activation_shell_surroundings;;
+

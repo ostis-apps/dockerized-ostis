@@ -1,0 +1,16 @@
+particle_expressive
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [эмоционально-экспрессивная частица](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_participle_expressive
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (эмоционально-экспрессивная частица)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Эмоционально-экспрессивная частица - частица, выражающая эмоциональную оценку высказывания и усиливающая выразительность речи.](* <- lang_ru;; *);;
+				*);;
+		*);;

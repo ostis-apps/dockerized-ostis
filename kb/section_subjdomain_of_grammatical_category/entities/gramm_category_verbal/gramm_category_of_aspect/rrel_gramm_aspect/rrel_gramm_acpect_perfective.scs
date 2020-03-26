@@ -1,0 +1,16 @@
+rrel_gramm_aspect_perfective
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [совершенный вид'](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_rrel_gramm_aspect_perfective
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (совершенный вид')](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Совершенный вид - вид, обозначающий ограниченное пределом действие в какой-либо момент его осуществления.](* <- lang_ru;; *);;
+				*);;
+		*);;

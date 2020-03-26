@@ -1,0 +1,17 @@
+rrel_gramm_tense_relative
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [относительное время'](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_rrel_gramm_tense_relative
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (относительное время')](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Относительное время - время, определяемое в данной форме не моментом речи, а соотношением с временемдругого действия.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

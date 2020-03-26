@@ -1,0 +1,11 @@
+lexeme_numerative
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [числовая лексема](* <- lang_ru;; *);
+    <= nrel_intersection:...
+	(*
+		-> lexeme_quantitative;;
+		-> lexeme_constant;;
+		-> lexeme_informational;;
+	*);;
+	

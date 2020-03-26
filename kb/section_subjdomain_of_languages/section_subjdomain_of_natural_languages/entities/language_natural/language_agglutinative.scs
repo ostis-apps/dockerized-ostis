@@ -1,0 +1,5 @@
+language_agglutinative
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [агглютинативный язык](* <- lang_ru;; *);;
+

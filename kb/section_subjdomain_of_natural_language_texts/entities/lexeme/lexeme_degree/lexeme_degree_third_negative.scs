@@ -1,0 +1,4 @@
+lexeme_degree_third_negative
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [3-я отрицательная степень](* <- lang_ru;; *);;

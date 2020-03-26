@@ -1,0 +1,11 @@
+divine
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [угадывать](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_generation;
+
+    <- action_exploitation_core_shell;;
+

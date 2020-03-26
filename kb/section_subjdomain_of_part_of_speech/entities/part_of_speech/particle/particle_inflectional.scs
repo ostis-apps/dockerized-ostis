@@ -1,0 +1,17 @@
+particle_inflectional
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [формообразующая частица](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_particle_inflectional
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (формообразующая частица)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Формообразующая частица - частица, образующая грамматические формы.](* <- lang_ru;; *);;
+				*);;
+		*);;
+        

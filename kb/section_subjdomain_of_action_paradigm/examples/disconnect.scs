@@ -1,0 +1,11 @@
+disconnect
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [размыкать](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_generation;
+
+    <- action_exploitation_core_shell;;
+

@@ -1,0 +1,35 @@
+noun
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [имя существительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_noun
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (имя существительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Имя существительное - слово, которые служит названием предмета в широком смысле, т.е. имеет значение предметности.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+    <= nrel_subdividing: ...
+    (*
+	    => nrel_main_idtf:
+	    	[разбиение по значению](*<-lang_ru;; *);;
+	    -> noun_proper;
+           noun_appellative;;
+    *);
+
+	<= nrel_subdividing: ...
+    (*
+	    => nrel_main_idtf:
+	    	[разбиение по признаку значения](*<-lang_ru;; *);;
+	    -> noun_singularity;
+	  	   noun_abstract;
+	       noun_material;
+		   noun_concrete;
+		   noun_collective;;
+    *);;

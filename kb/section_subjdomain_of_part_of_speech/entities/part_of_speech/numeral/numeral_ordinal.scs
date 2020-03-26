@@ -1,0 +1,16 @@
+numeral_ordinal
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [порядковое числительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_numeral_ordinal
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (порядковое числительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Порядковое числительное - это числительное, обозначающее порядок однородных предметов при их счете.](* <- lang_ru;; *);;
+				*);;
+		*);;

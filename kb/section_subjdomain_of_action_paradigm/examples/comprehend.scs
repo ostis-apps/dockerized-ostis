@@ -1,0 +1,11 @@
+comprehend
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [осмыслять](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_amplification;
+
+    <- action_activation_surroundings_shell;;
+

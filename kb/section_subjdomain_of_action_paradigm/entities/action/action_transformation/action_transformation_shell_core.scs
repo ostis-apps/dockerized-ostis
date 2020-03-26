@@ -1,0 +1,4 @@
+action_transformation_shell_core
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [действие преобразования ядра оболочки](* <-lang_ru;; *);;

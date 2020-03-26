@@ -1,0 +1,11 @@
+transfigure
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [преобразовывать](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_amplification;
+
+    <- action_transformation_core_shell;;
+

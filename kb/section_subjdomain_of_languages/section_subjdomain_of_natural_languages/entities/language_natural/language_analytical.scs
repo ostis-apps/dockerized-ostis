@@ -1,0 +1,5 @@
+language_analytical
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [аналитический язык](* <- lang_ru;; *);;
+

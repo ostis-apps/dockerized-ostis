@@ -1,0 +1,11 @@
+rip_up
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [вспарывать](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_initiation;
+
+    <- action_transformation_shell_core;;
+

@@ -1,0 +1,5 @@
+language_inflectional
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [флективный язык](* <- lang_ru;; *);;
+

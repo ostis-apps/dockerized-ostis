@@ -1,0 +1,16 @@
+noun_abstract
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [абстрактное существительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_noun_abstract
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (абстрактное существительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Абстрактное существительное - имя существительное, употребляемое для обозначения абстрактных понятий качества, действия и состояния.](* <- lang_ru;; *);;
+				*);;
+		*);;

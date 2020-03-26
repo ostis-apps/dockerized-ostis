@@ -1,0 +1,11 @@
+regenerate
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [возрождать](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_amplification;
+
+    <- action_normalization_surroundings_shell;;
+

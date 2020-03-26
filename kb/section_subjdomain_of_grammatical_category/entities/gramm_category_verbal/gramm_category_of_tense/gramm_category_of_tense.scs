@@ -1,0 +1,20 @@
+gramm_category_of_tense
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [грамматическая категория времени](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_gramm_category_of_tense
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (грамматическая категория времени)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Грамматическая категория времени - категория, которая выражает отношение времени действия глагола к моменту речи.](* <- lang_ru;; *);;
+				*);;
+		*);
+		
+	-> rrel_gramm_tense;;
+
+		

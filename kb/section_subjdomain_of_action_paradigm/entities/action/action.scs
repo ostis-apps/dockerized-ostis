@@ -1,0 +1,26 @@
+action
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [действие](* <-lang_ru;; *);
+
+    <= nrel_subdividing: ...
+    (*
+        -> action_physical;;
+        -> action_information;;
+    *);
+
+    <= nrel_subdividing: ...
+    (*
+        -> action_initiation;;
+        -> action_accumulation;;
+        -> action_amplification;;
+        -> action_generation;;
+    *);
+
+    <= nrel_subdividing: ...
+    (*
+        -> action_activation;;
+        -> action_exploitation;;
+        -> action_transformation;;
+        -> action_normalization;;
+    *);;

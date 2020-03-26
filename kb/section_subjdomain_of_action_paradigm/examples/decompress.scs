@@ -1,0 +1,11 @@
+decompress
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [расслаблять](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_accumulation;
+
+    <- action_activation_shell_surroundings;;
+

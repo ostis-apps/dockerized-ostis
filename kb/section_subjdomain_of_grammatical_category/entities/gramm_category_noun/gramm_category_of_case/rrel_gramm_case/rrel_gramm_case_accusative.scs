@@ -1,0 +1,4 @@
+rrel_gramm_case_accusative
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [винительный падеж'](* <-lang_ru;; *);;

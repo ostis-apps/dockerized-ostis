@@ -1,0 +1,17 @@
+preposition_denominative
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [отыменной предлог](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_preposition_denominative
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (отыменной предлог)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Отыменной предлог - предлог, представляющий собой результат перехода существительных в состав предлогов (непосредственно или через посредство наречий).](* <- lang_ru;; *);;
+				*);;
+		*);;
+

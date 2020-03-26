@@ -1,0 +1,16 @@
+particle_modal_volitional
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [модально-волевая частица](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_participle_modal_volitional
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (модально-волевая частица)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Модально-волевая частица - частица, выражающие модально-волевые оттенки значения.](* <- lang_ru;; *);;
+				*);;
+		*);;

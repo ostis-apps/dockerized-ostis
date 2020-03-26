@@ -1,0 +1,4 @@
+lexeme_multiple
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [многоместная лексема](* <- lang_ru;; *);;

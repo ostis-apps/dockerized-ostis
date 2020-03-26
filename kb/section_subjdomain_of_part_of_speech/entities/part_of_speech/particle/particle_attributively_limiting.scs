@@ -1,0 +1,4 @@
+particle_attributively_limiting
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [определительно-уточняющая частица](* <- lang_ru;; *);;

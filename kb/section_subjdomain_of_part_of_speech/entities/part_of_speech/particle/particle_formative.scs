@@ -1,0 +1,17 @@
+particle_formative
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [словообразующая частица](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_particle_formative
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (словообразующая частица)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Словообразующая частица - частица, образующая новые слова.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

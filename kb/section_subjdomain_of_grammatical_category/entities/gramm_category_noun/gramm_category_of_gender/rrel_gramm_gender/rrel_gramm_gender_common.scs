@@ -1,0 +1,5 @@
+rrel_gramm_gender_common
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [общий род'](* <-lang_ru;; *);;
+

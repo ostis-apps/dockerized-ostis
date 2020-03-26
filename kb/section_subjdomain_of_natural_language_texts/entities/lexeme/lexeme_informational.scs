@@ -1,0 +1,4 @@
+lexeme_informational
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [информационная лексема](* <- lang_ru;; *);;

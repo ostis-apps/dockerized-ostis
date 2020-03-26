@@ -1,0 +1,17 @@
+subjdomain_of_part_of_speech
+    => nrel_main_idtf:
+        [Предметная область частей речи](* <-lang_ru;; *);
+        [Subject domain of grammatical categories](* <-lang_en;; *);
+
+    <- subject_domain;
+    <= nrel_primary_elements_class_private_subject_domain: subjdomain_informational_structures_not_sc_code;
+    -> rrel_maximum_studied_object_class: part_of_speech;;
+
+part_of_speech
+
+<= nrel_subdividing: ...
+(*
+    -> part_of_speech_independent;
+       part_of_speech_service;
+       interjection;;
+*);;

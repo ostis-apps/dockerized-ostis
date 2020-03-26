@@ -1,0 +1,11 @@
+language_synthetic
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [синтетический язык](* <- lang_ru;; *);
+
+    <= nrel_subdividing: ...
+    (*
+        -> language_inflectional;;
+        -> language_agglutinative;;
+    *);;
+

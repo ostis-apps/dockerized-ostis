@@ -1,0 +1,11 @@
+intend
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [вознамериться](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_accumulation;
+
+    <- action_transformation_core_shell;;
+

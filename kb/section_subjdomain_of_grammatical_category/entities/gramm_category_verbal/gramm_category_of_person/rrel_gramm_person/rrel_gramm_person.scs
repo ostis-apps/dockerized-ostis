@@ -1,0 +1,12 @@
+rrel_gramm_person
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [лицо'](* <-lang_ru;; *);
+
+<= nrel_subdividing: ...
+(*
+    -> rrel_gramm_person_first;
+       rrel_gramm_person_second;
+       rrel_gramm_person_third;;
+*);;
+

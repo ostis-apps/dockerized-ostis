@@ -1,0 +1,18 @@
+numeral_collective
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [собирательное числительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_numeral_collective
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (собирательное числительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Собирательное числительное - это числительное, обобщающее значение нескольких предметов в одно целое.](* <- lang_ru;; *);;
+				*);;
+		*);;
+
+

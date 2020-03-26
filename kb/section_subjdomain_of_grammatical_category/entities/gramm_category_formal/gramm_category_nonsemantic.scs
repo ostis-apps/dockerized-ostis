@@ -1,0 +1,5 @@
+gramm_category_nonsemantic
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [асемантическая грамматическая категория](* <-lang_ru;; *);;
+

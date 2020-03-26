@@ -1,0 +1,11 @@
+fill_up
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [дополнять](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_accumulation;
+
+    <- action_transformation_shell_core;;
+

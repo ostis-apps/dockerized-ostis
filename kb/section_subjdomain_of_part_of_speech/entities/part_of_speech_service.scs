@@ -1,0 +1,25 @@
+part_of_speech_service
+    <-sc_node_not_relation;
+    => nrel_main_idtf:
+        [служебная часть речи](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_part_of_speech_service
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (служебная часть речи)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Служебные части речи - это слова, лишенные номинативной (назывной) функции. Они являются своеобразным грамматическим средством для выражения отношений и связи между словами и предложениями, а также для передачи определенных смысловых и эмоциональных оттенков значений, выраженных самостоятельными частями речи.](* <- lang_ru;; *);;
+				*);;
+		*);
+        
+    <= nrel_subdividing: ...
+    (*
+	    -> preposition;
+           conjunction;
+           particle;;
+    *);;
+
+    

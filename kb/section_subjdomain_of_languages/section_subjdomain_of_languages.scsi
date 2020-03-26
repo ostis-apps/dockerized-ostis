@@ -1,0 +1,17 @@
+subjdomain_of_languages
+    => nrel_main_idtf:
+        [Предметная область языков](* <-lang_ru;; *);
+        [Subject domain of languages](* <-lang_en;; *);
+
+    <- subject_domain;
+    <= nrel_primary_elements_class_private_subject_domain: subjdomain_informational_structures_not_sc_code;
+    -> rrel_maximum_studied_object_class: language;;
+
+language
+    <= nrel_subdividing: ...
+    (*
+        <- language_natural;;
+        <- language_artificial;;
+    *);
+    <= nrel_set_of_subsets: natural_language_text;;
+

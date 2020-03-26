@@ -1,0 +1,16 @@
+noun_concrete
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [конкретное существительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_noun_concrete
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (конкретное существительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Конкретное существительное - имя существительноее, употребляемое для обозначения предметов действительности или лиц.](* <- lang_ru;; *);;
+				*);;
+		*);;

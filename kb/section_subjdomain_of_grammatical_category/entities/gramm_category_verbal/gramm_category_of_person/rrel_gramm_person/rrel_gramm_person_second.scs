@@ -1,0 +1,5 @@
+rrel_gramm_person_second
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [второе лицо'](* <-lang_ru;; *);;
+

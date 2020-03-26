@@ -1,0 +1,5 @@
+rrel_gramm_case_dative
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [дательный падеж'](* <-lang_ru;; *);;
+

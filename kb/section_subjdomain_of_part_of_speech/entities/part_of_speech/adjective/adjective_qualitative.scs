@@ -1,0 +1,16 @@
+adjective_qualitative
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [качественное прилагательное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_adjective_qualitative
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (качественное прилагательное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Качественными прилагательное - это прилагательное, которое обозначает признаки, свойства и качества предметов, воспринимаемые нами по преимуществу непосредственно, т.е. являются прямыми наименованиями признаков.](* <- lang_ru;; *);;
+				*);;
+		*);;

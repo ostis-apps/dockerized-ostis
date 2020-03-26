@@ -1,0 +1,16 @@
+numeral_indefinite
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [неопределенно-количественное числительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_numeral_indefinite
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (неопределенно-количественное числительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Неопределенно-количественное числительное - это числительное, условно обозначающее группу слов со значением неопределенного количества.](* <- lang_ru;; *);;
+				*);;
+		*);;

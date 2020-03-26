@@ -1,0 +1,4 @@
+language_isolated
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [изолирующий язык](* <- lang_ru;; *);;

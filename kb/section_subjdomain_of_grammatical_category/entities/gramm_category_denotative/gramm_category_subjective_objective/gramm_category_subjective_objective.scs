@@ -1,0 +1,26 @@
+gramm_category_subjective_objective
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [субъективно-объективная грамматическая категория](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_gramm_category_subjective_objective
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (субъективно-объективная грамматическая категория)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Субъективно-объективная грамматическая категория - это категория, отражающая свойства и отношения объектов с точки зрения участников речевого акта.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+<= nrel_subdividing: ...
+(*
+    -> gramm_category_actualizative;
+       gramm_category_modal;
+       gramm_category_communicative;
+       gramm_category_evaluative;
+       gramm_category_interpretive;;
+*);;
+

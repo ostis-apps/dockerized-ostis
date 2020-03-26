@@ -1,0 +1,40 @@
+numeral
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [имя числительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_numeral
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (имя числительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Имя числительное - разряд слов, которые служат названиями отвлеченных чисел, или определенного количества однородных предметов, выраженного в целых или дробных числах, или порядка предметов по счету.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+    <= nrel_subdividing: ...
+    (*
+      <- explanation;;
+      => nrel_main_idtf: 
+          [разбиение числительных по характеру образования](* <-lang_ru;; *);;
+      -> numeral_simple;
+         numeral_complex;
+         numeral_composite;;
+
+    *);
+
+   <= nrel_subdividing: ...
+    (*
+      => nrel_main_idtf: [разбиение числительных по грамматическим свойствам и характеру употребления](* <-lang_ru;; *);;
+      -> numeral_ordinal;
+         numeral_cardinal;
+         numeral_collective;
+         numeral_fraction;
+         numeral_indefinite;;
+    *);;
+
+
+ 

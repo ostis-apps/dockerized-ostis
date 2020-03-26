@@ -1,0 +1,24 @@
+gramm_category_derivational
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [деривационная грамматическая категория](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_gramm_category_derivational
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (деривационная грамматическая категория)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Деривационная грамматическая категория - предполагающая наличие корреляций лишь для некоторого значительного подкласса данной части речи.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+<= nrel_subdividing: ...
+(*
+    -> gramm_category_lexical_grammatical;
+       gramm_category_basis_formed;
+       gramm_category_inconsistently_correlative;;
+*);;
+

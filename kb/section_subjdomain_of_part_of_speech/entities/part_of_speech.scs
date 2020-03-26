@@ -1,0 +1,16 @@
+part_of_speech
+    <-sc_node_not_relation;
+    => nrel_main_idtf:
+        [часть речи](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_part_of_speech
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (часть речи)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Часть речи - определенные лексико-грамматические разряды, на которые в зависимости от лексического значения от характера морфологических признаков и синтаксической функции делятся все слова русского языка.](* <- lang_ru;; *);;
+				*);;
+		*);;

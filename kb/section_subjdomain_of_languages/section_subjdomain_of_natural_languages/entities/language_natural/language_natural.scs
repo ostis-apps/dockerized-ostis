@@ -1,0 +1,14 @@
+language_natural
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [естественный язык](* <- lang_ru;; *);
+    
+    <= nrel_subdividing: ...
+    (*
+        -> language_analytical;;
+        -> language_isolated;;
+        -> language_polysynthetic;;
+        -> language_oligosynthetic;;
+        -> language_synthetic;;
+    *);;
+

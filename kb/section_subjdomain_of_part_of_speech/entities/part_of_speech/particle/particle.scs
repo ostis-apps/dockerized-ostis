@@ -1,0 +1,35 @@
+particle
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [частица](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_participle
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (частица)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Частица - служебное слово, выражающее дополнительные смысловые оттенки предложений, словосочетаний и отдельных слов.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+    <= nrel_subdividing: ...
+    (*
+	    => nrel_main_idtf:
+	    	[разбиение по значению](*<-lang_ru;; *);;
+	    -> particle_expressive;
+           particle_modal;
+           particle_modal_volitional;
+           particle_sense;;
+    *);
+
+    <= nrel_subdividing: ...
+    (*
+	    => nrel_main_idtf:
+	    	[разбиение по образованию](*<-lang_ru;; *);;
+	    -> particle_inflectional;
+           particle_formative;;
+    *);;
+

@@ -1,0 +1,4 @@
+action_activation_shell_surroundings
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [действие активации окружения оболочки](* <-lang_ru;; *);;

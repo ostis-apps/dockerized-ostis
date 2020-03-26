@@ -1,0 +1,5 @@
+rrel_gramm_case_genitive
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [родительный падеж'](* <-lang_ru;; *);;
+

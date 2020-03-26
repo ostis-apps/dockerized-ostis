@@ -1,0 +1,17 @@
+conjunction_repeated
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [повторяющийся союз](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_conjunction_repeated
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (повторяющийся союз)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Повторяющийся оюз - союз, употребляющийся несколько раз.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

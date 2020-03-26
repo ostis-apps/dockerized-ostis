@@ -1,0 +1,16 @@
+preposition_composite
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [составной предлог](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_preposition_composite
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (составной предлог)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Составной предлог - это предлог, который состоит из двух или более слов.](* <- lang_ru;; *);;
+				*);;
+		*);;

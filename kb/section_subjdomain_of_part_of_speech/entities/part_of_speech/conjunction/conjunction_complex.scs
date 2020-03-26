@@ -1,0 +1,16 @@
+conjunction_complex 
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [составной союз](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_conjunction_complex
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (составной союз)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Составной союз - союз, соотносительный с существительными, местоимениями и наречиями, расчленяется на отдельные компоненты.](* <- lang_ru;; *);;
+				*);;
+		*);;

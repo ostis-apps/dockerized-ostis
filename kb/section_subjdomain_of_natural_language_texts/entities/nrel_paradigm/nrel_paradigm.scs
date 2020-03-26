@@ -1,0 +1,5 @@
+nrel_paradigm
+    <- sc_node_norole_relation;
+    => nrel_main_idtf:
+        [парадигма*](* <- lang_ru;; *);;
+

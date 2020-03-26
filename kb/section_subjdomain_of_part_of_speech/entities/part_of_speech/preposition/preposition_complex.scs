@@ -1,0 +1,16 @@
+preposition_complex
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [сложный предлог](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_preposition_complex
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (сложный предлог)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Сложный предлог - предлог, состоящий из двух простых предлогов, соединённых дефисом.](* <- lang_ru;; *);;
+				*);;
+		*);;

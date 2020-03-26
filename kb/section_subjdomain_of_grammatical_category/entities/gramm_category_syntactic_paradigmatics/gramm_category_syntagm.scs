@@ -1,0 +1,5 @@
+gramm_category_syntagm
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [грамматическая категория синтагм](* <-lang_ru;; *);;
+

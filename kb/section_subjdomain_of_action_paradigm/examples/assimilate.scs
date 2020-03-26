@@ -1,0 +1,11 @@
+assimilate
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [уподоблять](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_generation;
+
+    <- action_activation_shell_core;;
+

@@ -1,0 +1,4 @@
+gramm_category_consistently_correlative
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [последовательно коррелятивная грамматическая категория](* <-lang_ru;; *);;

@@ -1,0 +1,11 @@
+disavow
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [отрицать](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_generation;
+
+    <- action_exploitation_shell_surroundings;;
+

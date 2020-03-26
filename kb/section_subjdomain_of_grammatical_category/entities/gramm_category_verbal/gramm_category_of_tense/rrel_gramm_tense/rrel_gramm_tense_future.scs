@@ -1,0 +1,17 @@
+rrel_gramm_tense_future
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [будущее время'](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_rrel_gramm_tense_future
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (будущее время)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Будущее время - время, которое выражает действие, которое совершится после момента речи.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

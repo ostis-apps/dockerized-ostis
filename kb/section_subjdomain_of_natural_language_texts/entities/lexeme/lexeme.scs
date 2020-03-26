@@ -1,0 +1,19 @@
+sc_node_not_relation
+ -> lexeme;;
+
+lexeme
+ => nrel_main_idtf: [лексема](* <- lang_ru;; *);
+ => nrel_idtf: [множество лексем](* <- lang_ru;; *);
+ => nrel_idtf: [lexeme](* <- lang_en;; *);;
+
+definition -> ...   
+(*
+  	-> rrel_key_sc_element: lexeme;;
+  	=> nrel_main_idtf: [Опр. (лексема)](* <- lang_ru;; *);;
+ 
+     	<= nrel_sc_text_translation: ... 
+	(* 
+		-> [Лексема — слово как абстрактная единица морфологического анализа. В одну лексему объединяются разные парадигматические формы (словоформы) одного слова.](* <- lang_ru;; *);;
+	*);;
+*);;
+

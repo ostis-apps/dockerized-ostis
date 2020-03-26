@@ -1,0 +1,11 @@
+connect
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [соединять](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_generation;
+
+    <- action_exploitation_surroundings_shell;;
+

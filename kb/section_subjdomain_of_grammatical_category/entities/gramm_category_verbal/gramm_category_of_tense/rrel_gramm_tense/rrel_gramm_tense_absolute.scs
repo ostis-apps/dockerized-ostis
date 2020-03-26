@@ -1,0 +1,23 @@
+rrel_gramm_tense_absolute
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [абсолютное время'](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_rrel_gramm_tense_absolute
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (абсолютное время')](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Абсолютное время - это время, выраженное в глагольных формах по отношению к моменту речи.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+<= nrel_subdividing: ...
+(*
+    -> rrel_gramm_tense_past; 
+       rrel_gramm_tense_future;    
+       rrel_gramm_tense_present;; 
+*);;

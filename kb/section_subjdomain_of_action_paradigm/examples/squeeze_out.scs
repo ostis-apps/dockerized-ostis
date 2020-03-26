@@ -1,0 +1,11 @@
+squeeze_out
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [выгнетать](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_amplification;
+
+    <- action_exploitation_core_shell;;
+

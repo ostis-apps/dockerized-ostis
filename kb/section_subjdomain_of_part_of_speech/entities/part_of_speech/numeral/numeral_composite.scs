@@ -1,0 +1,18 @@
+numeral_composite
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [составное числительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_numeral_composite
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (составное числительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Составное числительное - сочетание нескольких числительных .](* <- lang_ru;; *);;
+				*);;
+		*);;
+
+

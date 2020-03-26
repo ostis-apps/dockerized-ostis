@@ -1,0 +1,23 @@
+gramm_category_inflectional
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [словоизменительная грамматическая категория](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_gramm_category_inflectional
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (словоизменительная грамматическая категория)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Словоизменительная грамматическая категория - категория, модифицирующая (то есть предполагающая наличие корреляций) для всех слов данной части речи.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+<= nrel_subdividing: ...
+(*
+    -> gramm_category_consistently_correlative;
+       gramm_category_flexional;;
+*);;
+

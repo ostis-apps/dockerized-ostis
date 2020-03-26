@@ -1,0 +1,16 @@
+preposition_deverbative
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [отглагольный предлог](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_preposition_deverbative
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (отглагольный предлог)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Отглагольный предлог - предлог, генетически связанный с деепричастиями.](* <- lang_ru;; *);;
+				*);;
+		*);;

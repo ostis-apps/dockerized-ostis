@@ -1,0 +1,12 @@
+rrel_gramm_voice
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [залог'](* <-lang_ru;; *);
+
+<= nrel_subdividing: ...
+(*
+    -> rrel_gramm_voice_passive;
+       rrel_gramm_voice_active;
+       rrel_gramm_voice_reflexive_middle;;
+*);;
+

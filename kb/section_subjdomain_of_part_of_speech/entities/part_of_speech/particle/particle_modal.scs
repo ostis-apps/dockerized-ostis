@@ -1,0 +1,18 @@
+particle_modal
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [модальная частица](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_participle_modal
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (модальная частица)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Модальная частица - частица, выражающая модальные оттенки значения.](* <- lang_ru;; *);;
+				*);;
+		*);;
+
+        

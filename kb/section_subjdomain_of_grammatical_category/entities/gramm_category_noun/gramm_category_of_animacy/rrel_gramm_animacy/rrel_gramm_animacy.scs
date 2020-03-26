@@ -1,0 +1,4 @@
+rrel_gramm_animacy
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [одушевленность'](* <-lang_ru;; *);;

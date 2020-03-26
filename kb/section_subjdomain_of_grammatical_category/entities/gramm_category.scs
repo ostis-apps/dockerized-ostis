@@ -1,0 +1,17 @@
+gramm_category
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [грамматическая категория](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_rrel_gramm_category
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (грамматическая категория)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Грамматическая категория - это свойственные словам значения обобщенного характера, значения, отвлеченные от конкретных лексических значений этих слов.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

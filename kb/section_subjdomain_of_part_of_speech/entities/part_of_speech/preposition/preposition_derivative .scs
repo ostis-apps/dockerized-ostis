@@ -1,0 +1,28 @@
+preposition_derivative
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [производный предлог](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_preposition_derivative
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (производный редлог)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Производный предлог - предлог, связанный происхождением с другими частями речи.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+    <= nrel_subdividing: ...
+    (*
+	    => nrel_main_idtf:
+	    	[разбиение по происхождению](*<-lang_ru;; *);;
+	    -> preposition_adverbial;
+           preposition_deverbative;
+           preposition_denominative;;
+    *);;
+
+
+ 	

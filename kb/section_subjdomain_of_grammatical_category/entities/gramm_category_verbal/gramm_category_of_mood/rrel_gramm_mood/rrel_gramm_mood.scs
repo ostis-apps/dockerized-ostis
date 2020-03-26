@@ -1,0 +1,12 @@
+rrel_gramm_mood
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [наклонение'](* <-lang_ru;; *);
+
+    <= nrel_subdividing: ...
+    (*
+        -> rrel_gramm_mood_conditional;
+           rrel_gramm_mood_imperative;
+		   rrel_gramm_mood_realis;;
+    *);;	
+		

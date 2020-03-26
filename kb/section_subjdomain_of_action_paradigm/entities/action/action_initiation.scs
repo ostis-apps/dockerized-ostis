@@ -1,0 +1,4 @@
+action_initiation
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [инициирующее действие](* <-lang_ru;; *);;

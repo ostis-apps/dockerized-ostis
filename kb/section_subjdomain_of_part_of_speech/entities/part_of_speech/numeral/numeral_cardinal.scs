@@ -1,0 +1,17 @@
+numeral_cardinal
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [количественное числительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_numeral_cardinal
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (количественное числительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Количественное числительное - числительное, которое обозначает в целых единицах отвлеченное число или определенное количество однородных предметов.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

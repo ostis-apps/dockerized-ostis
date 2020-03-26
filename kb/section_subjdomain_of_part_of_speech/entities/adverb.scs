@@ -1,0 +1,4 @@
+adverb
+    <-sc_node_not_relation;
+    => nrel_main_idtf:
+        [наречие](* <-lang_ru;; *);;

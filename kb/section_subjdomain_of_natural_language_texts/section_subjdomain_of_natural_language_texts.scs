@@ -1,0 +1,8 @@
+section_subjdomain_of_natural_language_texts
+    => nrel_main_idtf:
+        [Раздел. Предметная область текстов естественного языка](* <- lang_ru;; *);
+        [Section. Subject domain of natural language texts](* <- lang_en;; *);
+    <- atomic_section;
+    <- not_enough_formed_structure;;
+
+section_subjdomain_of_natural_language_texts = [*^"file://section_subjdomain_of_natural_language_texts.scsi"*];;

@@ -1,0 +1,11 @@
+center
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [концентрироваться](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_amplification;
+
+    <- action_activation_shell_core;;
+

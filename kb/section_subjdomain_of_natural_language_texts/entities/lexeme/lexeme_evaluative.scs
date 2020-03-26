@@ -1,0 +1,10 @@
+lexeme_evaluative
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [оценочная лексема](* <- lang_ru;; *);
+    <= nrel_intersection:...
+	(*
+		-> lexeme_degree_second_positive;;
+		-> lexeme_yogan;;
+	*);;
+	

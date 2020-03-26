@@ -1,0 +1,10 @@
+rrel_gramm_tense
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [время'](* <-lang_ru;; *);
+
+	<= nrel_subdividing: ...
+		(*
+  			-> rrel_gramm_tense_absolute; 
+       	  	   rrel_gramm_tense_relative;;
+		*);;

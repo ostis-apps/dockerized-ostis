@@ -1,0 +1,4 @@
+action_amplification
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [усиливающее действие](* <-lang_ru;; *);;

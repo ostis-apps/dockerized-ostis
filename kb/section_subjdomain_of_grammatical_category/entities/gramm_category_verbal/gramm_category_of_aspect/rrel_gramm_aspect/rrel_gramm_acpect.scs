@@ -1,0 +1,10 @@
+rrel_gramm_aspect
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [вид'](* <-lang_ru;; *);
+
+    <= nrel_subdividing: ...
+    (*
+        -> rrel_gramm_aspect_perfective;
+           rrel_gramm_aspect_imperfective;;
+    *);;

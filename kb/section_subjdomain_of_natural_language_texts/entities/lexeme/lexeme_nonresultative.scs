@@ -1,0 +1,4 @@
+lexeme_nonresultative
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [нерезультативная лексема](* <- lang_ru;; *);;

@@ -1,0 +1,11 @@
+revive
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [пробуждать](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_generation;
+
+    <- action_normalization_shell_core;;
+

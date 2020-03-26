@@ -1,0 +1,27 @@
+part_of_speech_independent
+    <-sc_node_not_relation;
+    => nrel_main_idtf:
+        [самостоятельная часть речи](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_part_of_speech_independent
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (самостоятельная часть речи)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Самостоятельная часть речи - это часть речи, которая либо называют предметы, качество или свойство, количество, действие или состояние, либо указывает на них.](* <- lang_ru;; *);;
+				*);;
+		*);
+        
+    <= nrel_subdividing: ...
+    (*
+	    -> noun;
+           adjective;
+           verb;
+           numeral;
+           adverb;
+           pronoun;;
+    *);;
+    

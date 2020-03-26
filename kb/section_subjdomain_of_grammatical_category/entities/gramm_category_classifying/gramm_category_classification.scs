@@ -1,0 +1,5 @@
+gramm_category_classification
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [классификационная грамматическая категория](* <-lang_ru;; *);;
+

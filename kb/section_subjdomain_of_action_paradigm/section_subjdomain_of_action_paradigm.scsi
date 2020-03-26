@@ -1,0 +1,68 @@
+subjdomain_of_action_paradigm
+    => nrel_main_idtf:
+        [Предметная область парадигм действий](* <-lang_ru;; *);
+        [Subject domain of action paradigms](* <-lang_en;; *);
+
+    <- subject_domain;
+    <= nrel_primary_elements_class_private_subject_domain: subjdomain_informational_structures_not_sc_code;
+    -> rrel_maximum_studied_object_class: action;;
+
+action
+    <= nrel_subdividing: ...
+    (*
+        -> action_physical;;
+        -> action_information;;
+    *);;
+
+action
+    <= nrel_subdividing: ...
+    (*
+        -> action_initiation;;
+        -> action_accumulation;;
+        -> action_amplification;;
+        -> action_generation;;
+    *);;
+
+action
+    <= nrel_subdividing: ...
+    (*
+        -> action_activation;;
+        -> action_exploitation;;
+        -> action_transformation;;
+        -> action_normalization;;
+    *);;
+
+action_activation
+    <= nrel_subdividing: ...
+    (*
+        -> action_activation_surroundings_shell;;
+        -> action_activation_shell_core;;
+        -> action_activation_core_shell;;
+        -> action_activation_shell_surroundings;;
+    *);;
+
+action_exploitation
+    <= nrel_subdividing: ...
+    (*
+        -> action_exploitation_surroundings_shell;;
+        -> action_exploitation_shell_core;;
+        -> action_exploitation_core_shell;;
+        -> action_exploitation_shell_surroundings;;
+    *);;
+
+action_transformation
+    <= nrel_subdividing: ...
+    (*
+        -> action_transformation_surroundings_shell;;
+        -> action_transformation_shell_core;;
+        -> action_transformation_core_shell;;
+        -> action_transformation_shell_surroundings;;
+    *);;
+
+action_normalization
+    <= nrel_subdividing: ...
+    (*
+        -> action_normalization_surroundings_shell;;
+        -> action_normalization_shell_core;;
+    *);;
+	

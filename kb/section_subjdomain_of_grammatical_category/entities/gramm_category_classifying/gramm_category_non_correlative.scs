@@ -1,0 +1,5 @@
+gramm_category_non_correlative
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [некоррелятивная грамматическая категория](* <-lang_ru;; *);;
+

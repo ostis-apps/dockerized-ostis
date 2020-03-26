@@ -1,0 +1,11 @@
+feel_profoundly
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [глубоко чувствовать](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_amplification;
+
+    <- action_activation_core_shell;;
+

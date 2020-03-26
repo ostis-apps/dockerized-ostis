@@ -1,0 +1,11 @@
+approach
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [подходить (к)](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_initiation;
+
+    <- action_exploitation_surroundings_shell;;
+

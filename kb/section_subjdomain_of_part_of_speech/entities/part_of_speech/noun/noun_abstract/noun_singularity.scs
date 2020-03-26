@@ -1,0 +1,17 @@
+noun_singularity
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [сингулятивное существительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_noun_singularity
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (сингулятивное существительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Сингулятивное существительное - конкретное нарицательное имя существительнле, употребляемое для обозначения лиц или предметов, выделяемых из массы вещества или из числа однородных.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

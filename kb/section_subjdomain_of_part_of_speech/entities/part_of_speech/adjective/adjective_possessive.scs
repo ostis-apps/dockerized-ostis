@@ -1,0 +1,16 @@
+adjective_possessive
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [притяжательное прилагательное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_adjective_possessive
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (притяжательное прилагательное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Притяжательное прилагательное - это прилагательное, которое обозначает принадлежность какого-либо предмета определенному лицу или (реже) животному.](* <- lang_ru;; *);;
+				*);;
+		*);;

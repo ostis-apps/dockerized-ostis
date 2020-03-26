@@ -1,0 +1,23 @@
+particle_sense
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [смысловая частица](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_participle_sense
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (смысловая частица)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Смысловая частица - частица, выражающая смысловые оттенки значений.](* <- lang_ru;; *);;
+				*);;
+		*);
+		
+    <= nrel_subdividing: ...
+    (*
+	    -> particle_demonstrative;
+           particle_attributively_limiting;
+           particle_scaling;;
+    *);;

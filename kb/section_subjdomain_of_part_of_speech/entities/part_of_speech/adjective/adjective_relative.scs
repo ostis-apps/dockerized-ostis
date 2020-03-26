@@ -1,0 +1,16 @@
+adjective_relative
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [относительное прилагательное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_adjective_relative
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (относительное прилагательное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Относительное прилагательное - прилагательное, которое обозначают признак не прямо, а через его отношение к другому предмету, явлению или действию, т.е. опосредствованно.](* <- lang_ru;; *);;
+				*);;
+		*);;

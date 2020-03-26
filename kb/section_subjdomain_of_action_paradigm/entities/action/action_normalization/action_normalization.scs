@@ -1,0 +1,10 @@
+action_normalization
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [действие нормализации](* <-lang_ru;; *);
+
+    <= nrel_subdividing: ...
+    (*
+        -> action_normalization_surroundings_shell;;
+        -> action_normalization_shell_core;;
+    *);;

@@ -1,0 +1,4 @@
+lexeme_possesive
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [притяжательная лексема](* <- lang_ru;; *);;

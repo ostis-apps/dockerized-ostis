@@ -1,0 +1,16 @@
+preposition_simple
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [простой предлог](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_preposition_simple
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (простой предлог)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Простой предлог - предлог, который состоит из одного слова и который имеет одну основу.](* <- lang_ru;; *);;
+				*);;
+		*);;

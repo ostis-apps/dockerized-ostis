@@ -1,0 +1,5 @@
+rrel_gramm_person_first
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [первое_лицо'](* <-lang_ru;; *);;
+

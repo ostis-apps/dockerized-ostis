@@ -1,0 +1,18 @@
+noun_material
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [вещественное существительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_noun_material
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (вещественное существительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Вещественное существительное - существительное, которое употребляется для обозначения однородных по составу веществ, поддающихся делению, измерению (но не счету, т.е. неисчисляемые).](* <- lang_ru;; *);;
+				*);;
+		*);;
+
+		

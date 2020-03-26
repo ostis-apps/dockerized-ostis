@@ -1,0 +1,12 @@
+rrel_gramm_gender
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [род'](* <-lang_ru;; *);
+
+    <= nrel_subdividing: ...
+    (*
+        -> rrel_gramm_gender_masculine;
+           rrel_gramm_gender_feminine;
+           rrel_gramm_gender_common;
+           rrel_gramm_gender_neuter;;
+    *);;

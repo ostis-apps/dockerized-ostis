@@ -1,0 +1,11 @@
+centrifuge
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [центрифугироваться](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_amplification;
+
+    <- action_activation_core_shell;;
+

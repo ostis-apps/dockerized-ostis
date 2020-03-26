@@ -1,0 +1,4 @@
+particle_scaling
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [выделительно-ограничительная частица](* <- lang_ru;; *);;

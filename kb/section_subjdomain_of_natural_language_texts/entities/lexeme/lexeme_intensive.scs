@@ -1,0 +1,4 @@
+lexeme_intensive
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [интенсивная лексема](* <- lang_ru;; *);;

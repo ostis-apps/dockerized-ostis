@@ -1,0 +1,8 @@
+gramm_category_of_gender
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [грамматическая категория рода](* <-lang_ru;; *);
+
+	-> rrel_gramm_gender;;
+	 
+		

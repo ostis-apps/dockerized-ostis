@@ -1,0 +1,11 @@
+gramm_category_syntactic_paradigmatics
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [грамматическая категория синтаксической парадигматики](* <-lang_ru;; *);
+
+<= nrel_subdividing: ...
+(*
+    -> gramm_category_of_sentence;
+       gramm_category_syntagm;;
+*);;
+

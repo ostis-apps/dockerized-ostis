@@ -1,0 +1,11 @@
+advertise
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [рекламировать](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_accumulation;
+
+    <- action_exploitation_surroundings_shell;;
+

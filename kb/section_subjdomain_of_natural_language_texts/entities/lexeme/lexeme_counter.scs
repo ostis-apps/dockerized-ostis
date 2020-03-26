@@ -1,0 +1,12 @@
+lexeme_counter
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [счетная лексема](* <- lang_ru;; *);
+    <= nrel_intersection:...
+	(*
+		-> lexeme_quantitative;;
+		-> lexeme_variable;;
+		-> lexeme_compressed;;
+		-> lexeme_taigen;;
+	*);;
+	

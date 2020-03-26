@@ -1,0 +1,16 @@
+noun_proper
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [имя собственное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_noun_proper
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (имя собственное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Имя собственное - существительное, которое служит для называния единичных предметов, отдельных лиц, животных с целью выделения их из ряда других, однородных с ними.](* <- lang_ru;; *);;
+				*);;
+		*);;

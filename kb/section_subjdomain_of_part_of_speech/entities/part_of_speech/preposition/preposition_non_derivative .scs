@@ -1,0 +1,18 @@
+preposition_non_derivative
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [непроизводный предлог](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_preposition_non_derivative
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (непроизводный редлог)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Непроизводный предлог - так называемый первообразный предлог, который не может быть соотнесен по образованию с какой-либо частью речи.](* <- lang_ru;; *);;
+				*);;
+		*);;
+
+

@@ -1,0 +1,17 @@
+rrel_gramm_tense_past
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [прошедшее время'](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_rrel_gramm_tense_past
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (прошедшее время)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Прошедшее время - время, которое обозначает действие, предшествовавшее моменту речи.](* <- lang_ru;; *);;
+				*);;
+		*);;
+

@@ -1,0 +1,11 @@
+restart
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [перезапустить](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_amplification;
+
+    <- action_normalization_surroundings_shell;;
+

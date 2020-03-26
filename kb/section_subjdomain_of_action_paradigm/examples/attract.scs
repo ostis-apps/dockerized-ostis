@@ -1,0 +1,11 @@
+attract
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [покорять](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_initiation;
+
+    <- action_activation_surroundings_shell;;
+

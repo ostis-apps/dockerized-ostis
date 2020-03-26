@@ -1,0 +1,4 @@
+action_physical
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [физическое действие](* <-lang_ru;; *);;

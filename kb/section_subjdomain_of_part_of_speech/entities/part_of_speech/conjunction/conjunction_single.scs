@@ -1,0 +1,16 @@
+conjunction_single
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [одиночный союз](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_conjunction_single
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (одиночный союз)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Одиночный союз - союз, употребляющийся один раз.](* <- lang_ru;; *);;
+				*);;
+		*);;

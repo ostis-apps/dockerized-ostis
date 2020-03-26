@@ -1,0 +1,16 @@
+noun_collective
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [собирательное существительное](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_noun_collective
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (собирательное существительное)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Собирательное существительное - имя существительное, употребляемое для обозначения совокупности однородных лиц или предметов как некоего неделимого целого, как коллективного единства..](* <- lang_ru;; *);;
+				*);;
+		*);;

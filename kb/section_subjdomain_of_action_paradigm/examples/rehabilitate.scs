@@ -1,0 +1,11 @@
+rehabilitate
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [реабилитироваться](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_accumulation;
+
+    <- action_normalization_shell_core;;
+

@@ -1,0 +1,10 @@
+gramm_category_relational
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [реляционная грамматическая категория](* <-lang_ru;; *);
+
+<= nrel_subdividing: ...
+(*
+    -> gramm_category_active;
+       gramm_category_passive;;
+*);;

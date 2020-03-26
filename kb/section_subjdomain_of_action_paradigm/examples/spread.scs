@@ -1,0 +1,11 @@
+spread
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [распространять](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_accumulation;
+
+    <- action_exploitation_core_shell;;
+

@@ -1,0 +1,4 @@
+lexeme_minimized
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [свернутая лексема](* <- lang_ru;; *);;

@@ -1,0 +1,4 @@
+interjection
+    <-sc_node_not_relation;
+    => nrel_main_idtf:
+        [междометие](* <-lang_ru;; *);;

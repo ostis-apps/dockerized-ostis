@@ -1,0 +1,11 @@
+press_in
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [втискивать](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_amplification;
+
+    <- action_exploitation_shell_core;;
+

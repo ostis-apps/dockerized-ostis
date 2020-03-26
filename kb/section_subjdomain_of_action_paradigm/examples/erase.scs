@@ -1,0 +1,11 @@
+erase
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [стирать](* <-lang_ru;; *);
+
+    <- action_information;
+
+    <- action_accumulation;
+
+    <- action_activation_shell_surroundings;;
+

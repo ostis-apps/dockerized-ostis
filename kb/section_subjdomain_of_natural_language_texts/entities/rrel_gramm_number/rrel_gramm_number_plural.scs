@@ -1,0 +1,5 @@
+rrel_gramm_number_plural
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [множественное число'](* <- lang_ru;; *);;
+

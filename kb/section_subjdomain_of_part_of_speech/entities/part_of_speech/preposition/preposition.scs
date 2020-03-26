@@ -1,0 +1,33 @@
+preposition
+    <- sc_node_not_relation;
+    => nrel_main_idtf: 
+        [предлог](* <- lang_ru;; *);
+
+  	<- rrel_key_sc_element: definition_preposition
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (предлог)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Предлог - служебное слово, выражающее в сочетании с косвенными падежами существительных (а также субстантивированных прилагательных, местоимений и числительных) различные отношения между формами имени и другими словами в предложении.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+    <= nrel_subdividing: ...
+    (*
+	    => nrel_main_idtf:
+	    	[разбиение по морфологическому составу](*<-lang_ru;; *);;
+	    -> preposition_derivative ;
+           preposition_non_derivative ;;
+    *);
+
+        <= nrel_subdividing: ...
+    (*
+	    => nrel_main_idtf:
+	    	[разбиение по структуре](*<-lang_ru;; *);;
+	    -> preposition_simple;
+           preposition_complex;
+           preposition_composite;;
+    *);;

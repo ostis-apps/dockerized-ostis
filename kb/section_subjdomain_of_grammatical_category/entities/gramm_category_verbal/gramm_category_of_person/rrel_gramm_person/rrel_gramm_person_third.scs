@@ -1,0 +1,5 @@
+rrel_gramm_person_third
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [третье лицо'](* <-lang_ru;; *);;
+

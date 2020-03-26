@@ -1,0 +1,22 @@
+gramm_category_classifying
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [классифицирующая грамматическая категория](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_gramm_category_classifying
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (классифицирующая грамматическая категория)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Классифицирующая грамматическая категория - категория, свойственная целой лексеме и постоянная для неё.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+<= nrel_subdividing: ...
+(*
+    -> gramm_category_classification;
+       gramm_category_non_correlative;;
+*);;

@@ -1,0 +1,47 @@
+subjdomain_of_gramm_category
+    => nrel_main_idtf:
+        [Предметная область грамматических категорий](* <-lang_ru;; *);
+        [Subject domain of grammatical categories](* <-lang_en;; *);
+
+    <- subject_domain;
+    <= nrel_primary_elements_class_private_subject_domain: subjdomain_informational_structures_not_sc_code;
+    -> rrel_maximum_studied_object_class: gramm_category;;
+
+gramm_category
+
+<= nrel_subdividing: ...
+(*
+    <- explanation;;
+    => nrel_main_idtf:
+        [разбиение по характеру грамматических значений](*<-lang_ru;; *);;
+    -> gramm_category_denotative;
+       gramm_category_formal;;
+*);
+
+<= nrel_subdividing: ...
+(*
+    <- explanation;;
+    => nrel_main_idtf:
+        [разбиение по отношению категориального признака к членам разбиения](*<-lang_ru;; *);;
+    -> gramm_category_formative;
+       gramm_category_classifying;;
+*);
+
+<= nrel_subdividing: ...
+(*
+    <- explanation;;
+    => nrel_main_idtf:
+        [разбиение на синтаксические грамматические категории](*<-lang_ru;; *);;
+    -> gramm_category_syntactic_syntagmatics;
+       gramm_category_syntactic_paradigmatics;;
+*);
+
+<= nrel_subdividing: ...
+(*
+    <- explanation;;
+    => nrel_main_idtf:
+        [разбиение по частям речи](*<-lang_ru;; *);;
+    -> gramm_category_noun;
+       gramm_category_verbal;;
+*);;
+

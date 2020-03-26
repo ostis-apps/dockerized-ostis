@@ -1,0 +1,19 @@
+gramm_category_of_voice
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [грамматическая категория залога](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_gramm_category_of_voice
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (грамматическая категория залога)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Грамматическая категория залога - глагольная категория, которая выражает отношение действия к субъекту (производителю действия) и объекту действия (предмету, над которым действие производится).](* <- lang_ru;; *);;
+				*);;
+		*);
+
+	-> rrel_gramm_voice;;
+		

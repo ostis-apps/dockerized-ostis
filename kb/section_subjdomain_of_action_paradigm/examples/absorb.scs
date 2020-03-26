@@ -1,0 +1,11 @@
+absorb
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [поглотить](* <-lang_ru;; *);
+
+    <- action_physical;
+
+    <- action_initiation;
+
+    <- action_activation_shell_core;;
+

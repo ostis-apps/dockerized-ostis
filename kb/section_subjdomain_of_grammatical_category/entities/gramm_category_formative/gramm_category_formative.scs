@@ -1,0 +1,26 @@
+gramm_category_formative
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [формообразовательная грамматическая категория](* <-lang_ru;; *);
+
+	<- rrel_key_sc_element: definition_gramm_category_formative
+		(*
+			<- definition;;
+			=> nrel_main_idtf:
+					[Опр. (формообразовательная грамматическая категория)](* <- lang_ru;; *);;
+			<= nrel_sc_text_translation: ...
+				(*
+					-> rrel_example:
+						[Формообразовательная грамматическая категория - категория, по которой лексема может изменяться.](* <- lang_ru;; *);;
+				*);;
+		*);
+
+<= nrel_subdividing: ...
+(*
+    <- explanation;;
+    => nrel_main_idtf:
+        [разбиение по степени «коррелятивности»](*<-lang_ru;; *);;
+    -> gramm_category_inflectional;
+       gramm_category_derivational;;
+*);;
+

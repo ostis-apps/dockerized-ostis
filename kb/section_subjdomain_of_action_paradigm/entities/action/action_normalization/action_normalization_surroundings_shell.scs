@@ -1,0 +1,4 @@
+action_normalization_surroundings_shell
+    <- sc_node_not_relation;
+    => nrel_main_idtf:
+        [действие нормализации оболочки окружения](* <-lang_ru;; *);;
