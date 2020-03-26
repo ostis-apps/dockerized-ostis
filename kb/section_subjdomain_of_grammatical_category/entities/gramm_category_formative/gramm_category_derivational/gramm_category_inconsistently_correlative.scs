@@ -1,4 +1,0 @@
-gramm_category_inconsistently_correlative
-    <- sc_node_not_relation;
-    => nrel_main_idtf:
-        [непоследовательно коррелятивная грамматическая категория](* <-lang_ru;; *);;

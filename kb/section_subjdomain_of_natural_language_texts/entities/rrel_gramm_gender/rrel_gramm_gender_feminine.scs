@@ -1,5 +1,0 @@
-rrel_gramm_gender_feminine
-    <- sc_node_role_relation;
-    => nrel_main_idtf:
-        [женский род'](* <- lang_ru;; *);;
-

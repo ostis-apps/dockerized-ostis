@@ -1,5 +1,0 @@
-rrel_gramm_number_singular
-    <- sc_node_role_relation;
-    => nrel_main_idtf:
-        [единственное число'](* <-lang_ru;; *);;
-

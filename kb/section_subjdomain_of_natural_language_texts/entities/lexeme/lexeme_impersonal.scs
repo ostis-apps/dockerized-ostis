@@ -1,4 +1,0 @@
-lexeme_impersonal
-    <- sc_node_not_relation;
-    => nrel_main_idtf:
-        [неличная лексема](* <- lang_ru;; *);;

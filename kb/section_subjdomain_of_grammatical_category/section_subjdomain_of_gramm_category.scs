@@ -1,8 +1,0 @@
-section_subjdomain_of_gramm_category
-    => nrel_main_idtf:
-        [Раздел. Предметная область грамматических категорий](* <-lang_ru;; *);
-        [Section. Subject domain of grammatical categories](* <-lang_en;; *);
-    <- atomic_section;
-    <- not_enough_formed_structure;;
-
-    section_subjdomain_of_gramm_category  = [*^"file://section_subjdomain_of_gramm_category.scsi"*];;

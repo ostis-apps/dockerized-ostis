@@ -1,4 +1,0 @@
-lexeme_degree_third_positive
-    <- sc_node_not_relation;
-    => nrel_main_idtf:
-        [3-я положительная степень](* <- lang_ru;; *);;

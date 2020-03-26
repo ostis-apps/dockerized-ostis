@@ -1,4 +1,0 @@
-action_generation
-    <- sc_node_not_relation;
-    => nrel_main_idtf:
-        [действие поколения](* <-lang_ru;; *);;

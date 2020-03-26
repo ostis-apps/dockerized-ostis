@@ -1,4 +1,0 @@
-gramm_category_nomination
-    <- sc_node_not_relation;
-    => nrel_main_idtf:
-        [номинационная грамматическая категория](* <-lang_ru;; *);;

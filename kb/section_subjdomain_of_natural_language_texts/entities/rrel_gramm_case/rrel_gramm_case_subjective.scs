@@ -1,5 +1,0 @@
-rrel_gramm_case_subjective
-    <- sc_node_role_relation;
-    => nrel_main_idtf:
-        [именительный падеж'](* <- lang_ru;; *);;
-

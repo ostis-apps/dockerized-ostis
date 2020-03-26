@@ -1,4 +1,0 @@
-action_information
-    <- sc_node_not_relation;
-    => nrel_main_idtf:
-        [информационное действие](* <-lang_ru;; *);;

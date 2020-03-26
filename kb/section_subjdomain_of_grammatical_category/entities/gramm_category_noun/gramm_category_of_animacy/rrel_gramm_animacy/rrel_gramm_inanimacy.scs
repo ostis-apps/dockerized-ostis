@@ -1,4 +1,0 @@
-rrel_gramm_inanimacy
-    <- sc_node_role_relation;
-    => nrel_main_idtf:
-        [неодушевленность'](* <-lang_ru;; *);;

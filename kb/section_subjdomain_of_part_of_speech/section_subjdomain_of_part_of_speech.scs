@@ -1,8 +1,0 @@
-section_subjdomain_of_part_of_speech
-    => nrel_main_idtf:
-        [Раздел. Предметная область частей речи](* <-lang_ru;; *);
-        [Section. Subject domain of parts of speech](* <-lang_en;; *);
-    <- atomic_section;;
-
-  section_subjdomain_of_part_of_speech  = [*^"file://section_subjdomain_of_part_of_speech.scsi"*];;
-

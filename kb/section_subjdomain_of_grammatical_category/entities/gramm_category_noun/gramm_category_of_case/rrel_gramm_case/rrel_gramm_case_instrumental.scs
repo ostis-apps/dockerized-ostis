@@ -1,4 +1,0 @@
-rrel_gramm_case_instrumental
-    <- sc_node_role_relation;
-    => nrel_main_idtf:
-        [творительный падеж'](* <-lang_ru;; *);;

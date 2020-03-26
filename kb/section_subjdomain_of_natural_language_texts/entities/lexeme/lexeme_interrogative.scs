@@ -1,4 +1,0 @@
-lexeme_interrogative
-    <- sc_node_not_relation;
-    => nrel_main_idtf:
-        [вопросительная лексема](* <- lang_ru;; *);;

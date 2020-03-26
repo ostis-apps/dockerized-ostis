@@ -1,4 +1,0 @@
-rrel_gramm_case_prepositional
-    <- sc_node_role_relation;
-    => nrel_main_idtf:
-        [предложный падеж'](* <-lang_ru;; *);;
