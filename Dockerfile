@@ -14,32 +14,30 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER docker
 
 # Getting sc-machine from repo
-WORKDIR /ostis
 RUN sudo apt-get -y install git
-RUN sudo git clone --single-branch --branch example https://github.com/MikhailSadovsky/sc-machine.git
+WORKDIR /ostis
+RUN sudo git clone --single-branch --branch 0.5.0 https://github.com/ShunkevichDV/ostis.git .
 
-# Install sc-machine's dependencies
+# Prepare platform
+RUN sudo apt-get -y install nodejs-dev node-gyp libssl1.0-dev
+WORKDIR /ostis
+RUN sudo ./scripts/prepare.sh
+
+# Prepare kb and problem-solver dirs
+WORKDIR /ostis
+RUN rm ./ims.ostis.kb/ui/ui_start_sc_element.scs
+RUN rm -rf ./kb/menu
+RUN echo "./kb" >> ./repo.path
+RUN echo "./problem-solver" >> ./repo.path
+
+# Include kpm
 WORKDIR /ostis/sc-machine
-RUN sudo echo y | ./scripts/install_deps_ubuntu.sh
-RUN sudo apt-get -y install python3-pip
-RUN sudo pip3 install -r requirements.txt
+#RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' >> ./CMakeLists.txt
+RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' >> ./CMakeLists.txt
+WORKDIR /ostis/sc-machine/scripts
+RUN sudo ./make_all.sh
 
-# Build sc-machine
-WORKDIR /ostis/sc-machine/build
-RUN sudo cmake .. -DCMAKE_BUILD_TYPE=Release # use Debug for debug build
-RUN sudo make
-
-# Build web interface:
-## Install yarn
-RUN sudo apt-get -y remove cmdtest
-RUN sudo apt-get -y install curl
-RUN sudo curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-RUN sudo apt-get -y update
-RUN sudo apt-get -y install yarn
-## Build
-WORKDIR /ostis/sc-machine/web/client
-RUN sudo yarn && sudo yarn run webpack-dev
+WORKDIR /ostis
 
 # TODO: Cleanup dependencies
 
@@ -51,12 +49,12 @@ WORKDIR /ostis/sc-machine/scripts
 CMD sudo ./build_kb.sh
 # TODO: update client
 
-ENTRYPOINT sudo sh ./run_sc_server.sh
+ENTRYPOINT sudo ./restart_sctp.sh & sudo ./run_scweb.sh
 
 #
 # Image config
 #
-LABEL version="0.6.0"
+LABEL version="0.5.0"
 
-EXPOSE 8090
+EXPOSE 8000
 

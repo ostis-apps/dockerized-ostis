@@ -1,7 +1,7 @@
 #!/bin/sh
 
 IMAGE="ostis"
-VERSION="0.6.0"
+VERSION="0.5.0"
 
 docker build -t ${IMAGE}:${VERSION} .
 

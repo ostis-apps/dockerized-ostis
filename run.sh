@@ -1,8 +1,8 @@
 #!/bin/sh
 
-PORT="8090"
+PORT="8000"
 IMAGE="ostis"
-VERSION="0.6.0"
+VERSION="0.5.0"
 
 # Container paths
 OSTIS_PATH="/ostis/sc-machine"
@@ -83,7 +83,7 @@ done
 docker run -t -i \
   -v ${KB_PATH}:${OSTIS_PATH}/kb \
   -v ${PROBLEM_SOLVER_PATH}:${OSTIS_PATH}/problem-solver \
-  -p ${PORT}:8090 \
+  -p ${PORT}:8000 \
   ${IMAGE}:${VERSION}
 
 exit
