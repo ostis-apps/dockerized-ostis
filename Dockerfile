@@ -19,16 +19,47 @@ WORKDIR /ostis
 RUN sudo git clone --single-branch --branch 0.5.0 https://github.com/ShunkevichDV/ostis.git .
 
 # Prepare platform
-RUN sudo apt-get -y install nodejs-dev node-gyp libssl1.0-dev
-WORKDIR /ostis
-RUN sudo ./scripts/prepare.sh
+WORKDIR /ostis/scripts
+# Fix prepare.sh
+## Clone projects
+RUN sudo git clone --single-branch --branch 0.5.0 https://github.com/ShunkevichDV/sc-machine.git ../sc-machine
+RUN sudo git clone --single-branch --branch master https://github.com/Ivan-Zhukau/sc-web.git ../sc-web
+RUN sudo git clone --single-branch --branch master https://github.com/ShunkevichDV/ims.ostis.kb.git ../ims.ostis.kb
+RUN sudo apt-get -y install nodejs-dev node-gyp libssl1.0-dev curl python-pip python3
+## Prepare projects
+### sc-machine
+WORKDIR /ostis/sc-machine/scripts
+RUN python3Version=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))') && \
+    sudo sed -i -e "s/python3.5-dev/python${python3Version}-dev/" ./install_deps_ubuntu.sh && \
+    sudo sed -i -e "s/python3.5-dev/python${python3Version}/" ./install_deps_ubuntu.sh
+RUN echo y | sudo ./install_deps_ubuntu.sh
+RUN sudo apt-get install -y redis-server
+#### No need in clean_all.sh
+RUN sudo ./make_all.sh
+### sc-web
+WORKDIR /ostis/sc-web/scripts
+RUN sudo pip install --default-timeout=100 future
+RUN sudo apt-get install -y python-dev python-setuptools
+RUN echo y | sudo ./install_deps_ubuntu.sh
+#### Fix node dependencies
+RUN sudo apt-get install -y nodejs-dev node-gyp libssl1.0-dev
+####
+RUN sudo apt-get install -y nodejs npm
+RUN sudo ./install_nodejs_dependence.sh
+WORKDIR /ostis/sc-web
+RUN sudo npm install
+RUN sudo grunt build
+## Copy server.conf
+WORKDIR /ostis/scripts
+RUN sudo cp -f ../config/server.conf ../sc-web/server/
 
 # Prepare kb and problem-solver dirs
 WORKDIR /ostis
-RUN rm ./ims.ostis.kb/ui/ui_start_sc_element.scs
-RUN rm -rf ./kb/menu
-RUN echo "./kb" >> ./repo.path
-RUN echo "./problem-solver" >> ./repo.path
+RUN sudo rm ./ims.ostis.kb/ui/ui_start_sc_element.scs
+RUN sudo rm -rf ./kb/menu
+RUN echo "problem-solver" | sudo tee -a ./repo.path
+WORKDIR /ostis/scripts
+RUN sudo ./build_kb.sh
 
 # Include kpm
 WORKDIR /ostis/sc-machine
