@@ -57,18 +57,22 @@ RUN sudo cp -f ../config/server.conf ../sc-web/server/
 WORKDIR /ostis
 RUN sudo rm ./ims.ostis.kb/ui/ui_start_sc_element.scs
 RUN sudo rm -rf ./kb/menu
+RUN sudo mkdir problem-solver
 RUN echo "problem-solver" | sudo tee -a ./repo.path
 WORKDIR /ostis/scripts
-RUN sudo ./build_kb.sh
+COPY config /ostis/config
+#RUN sudo rm /ostis/config/sc-web.ini
+#RUN sudo service redis-server start
+#RUN sudo redis-server --daemonize yes
+#RUN sudo service redis-server start
+RUN ls /
+RUN sudo redis-server &
+RUN sudo ./build_kb.sh; exit 0
 
 # Include kpm
 WORKDIR /ostis/sc-machine
 #RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' >> ./CMakeLists.txt
-RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' >> ./CMakeLists.txt
-WORKDIR /ostis/sc-machine/scripts
-RUN sudo ./make_all.sh
-
-WORKDIR /ostis
+RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' | sudo tee -a ./CMakeLists.txt
 
 # TODO: Cleanup dependencies
 
@@ -77,10 +81,10 @@ WORKDIR /ostis
 #
 # Build knowledge base (from sc-machine/kb folder)
 WORKDIR /ostis/sc-machine/scripts
-CMD sudo ./build_kb.sh
-# TODO: update client
+ENTRYPOINT sudo cmake . && make
 
-ENTRYPOINT sudo ./restart_sctp.sh & sudo ./run_scweb.sh
+WORKDIR /ostis/scripts
+ENTRYPOINT sudo ./run_sctp.sh & sudo ./run_scweb.sh
 
 #
 # Image config
