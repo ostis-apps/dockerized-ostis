@@ -9,4 +9,9 @@ cd ../../scripts
 redis-server &
 ./build_kb.sh
 
-./run_sctp.sh & ./run_scweb.sh
+./run_sctp.sh &
+
+echo "\n\e[1;32mStarting sc-web on http://localhost:8000...\e[0m\n"
+
+./run_scweb.sh
+
