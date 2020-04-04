@@ -1,16 +1,15 @@
 # Dickerized OSTIS
 
 ### Installation
-1. Install docker
-2. Clone the repo
+1. Install docker(find installation for your system [here](https://docs.docker.com/install))
+1. Clone the repo
 
 ### Structure
 * kb
-* solvers
-* client?
+* problem-solvers
 
 ### Running the container
-Run the script:
+Run the script with flags(if needed):
 ```bash
 ./run.sh
 ```
@@ -23,6 +22,6 @@ Just run the script:
 ```
 
 ### TODOS:
-1. Add client updates
 1. Add updates and `--update` flag
 1. Saving projects in cache and add flags to list all projects and running project by name
+
