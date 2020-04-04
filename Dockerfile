@@ -41,9 +41,9 @@ WORKDIR /ostis/sc-web/scripts
 RUN sudo pip install --default-timeout=100 future
 RUN sudo apt-get install -y python-dev python-setuptools
 RUN echo y | sudo ./install_deps_ubuntu.sh
-#### Fix node dependencies
+#### Fix node dependencies {
 RUN sudo apt-get install -y nodejs-dev node-gyp libssl1.0-dev
-####
+#### }
 RUN sudo apt-get install -y nodejs npm
 RUN sudo ./install_nodejs_dependence.sh
 WORKDIR /ostis/sc-web
@@ -62,12 +62,7 @@ RUN echo "problem-solver" | sudo tee -a ./repo.path
 WORKDIR /ostis/scripts
 COPY config /ostis/config
 #RUN sudo rm /ostis/config/sc-web.ini
-#RUN sudo service redis-server start
-#RUN sudo redis-server --daemonize yes
-#RUN sudo service redis-server start
-RUN ls /
-RUN sudo redis-server &
-RUN sudo ./build_kb.sh; exit 0
+#RUN sudo ./build_kb.sh; exit 0
 
 # Include kpm
 WORKDIR /ostis/sc-machine
@@ -79,12 +74,11 @@ RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE
 #
 # Run sc-server
 #
-# Build knowledge base (from sc-machine/kb folder)
-WORKDIR /ostis/sc-machine/scripts
-ENTRYPOINT sudo cmake . && make
+# Rebuild sc-machine to add C++ agents
+COPY scripts/start_container.sh /ostis/scripts
 
 WORKDIR /ostis/scripts
-ENTRYPOINT sudo ./run_sctp.sh & sudo ./run_scweb.sh
+ENTRYPOINT sudo ./start_container.sh
 
 #
 # Image config
