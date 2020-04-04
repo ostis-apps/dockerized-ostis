@@ -1,6 +1,12 @@
 #!/bin/sh
 
-sudo ../sc-machine/scripts/make_all.sh
+cd ../sc-machine/scripts
 
-sudo redis-server & wait && \
-sudo ./run_sctp.sh & sudo ./run_scweb.sh
+./make_all.sh
+
+cd ../../scripts
+
+redis-server &
+./build_kb.sh
+
+./run_sctp.sh & ./run_scweb.sh
