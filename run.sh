@@ -1,11 +1,12 @@
 #!/bin/sh
 
-PORT="8090"
+PORT_NEW="8090"
+PORT_OLD="8000"
 IMAGE="ostis"
 VERSION="0.6.0"
 
 # Container paths
-OSTIS_PATH="/ostis/sc-machine"
+OSTIS_PATH="/ostis"
 
 # Lacal paths
 PROJECT_PATH=${PWD}
@@ -22,7 +23,8 @@ USAGE:
 
 OPTIONS:
   --help -h    Print help message
-  --port -p    Set a custom port(CURRENTLY DOES'NT WORKS!!!)
+  --port -p    Set a custom port for new client(CURRENTLY DOES'NT WORKS!!!)
+  --port_old    Set a custom port for old client(CURRENTLY DOES'NT WORKS!!!)
   --project    Set a custom path to the project directory(By default, it is expected, that inside the project you have all default directories for kb, problem-solver etc)
   --kb         Set a custom path to kb directory
   --solver     Set a custom path to problem-solvers deirectory
@@ -43,7 +45,17 @@ do
         help
         exit 1
       else
-        PORT="$2"
+        PORT_NEW="$2"
+      fi
+      ;;
+    --port_old)
+      if [ -z "$2" ]
+      then
+        echo "Cannot handle empty port value!"
+        help
+        exit 1
+      else
+        PORT_OLD="$2"
       fi
       ;;
     --project)
@@ -83,7 +95,8 @@ done
 docker run -t -i \
   -v ${KB_PATH}:${OSTIS_PATH}/kb \
   -v ${PROBLEM_SOLVER_PATH}:${OSTIS_PATH}/problem-solver \
-  -p ${PORT}:8090 \
+  -p ${PORT_NEW}:8090 \
+  -p ${PORT_OLD}:8000 \
   ${IMAGE}:${VERSION}
 
 exit
