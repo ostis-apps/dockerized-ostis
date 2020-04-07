@@ -5,7 +5,7 @@ IMAGE="ostis"
 VERSION="0.5.0"
 
 # Container paths
-OSTIS_PATH="/ostis/sc-machine"
+OSTIS_PATH="/ostis"
 
 # Lacal paths
 PROJECT_PATH=${PWD}
