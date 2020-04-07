@@ -42,9 +42,8 @@ RUN sudo pip install --default-timeout=100 future
 RUN sudo apt-get install -y python-dev python-setuptools
 RUN echo y | sudo ./install_deps_ubuntu.sh
 #### Fix node dependencies {
-RUN sudo apt-get install -y nodejs-dev node-gyp libssl1.0-dev
+RUN sudo apt-get install -y nodejs-dev node-gyp npm libssl1.0-dev
 #### }
-RUN sudo apt-get install -y nodejs npm
 RUN sudo ./install_nodejs_dependence.sh
 WORKDIR /ostis/sc-web
 RUN sudo npm install
@@ -52,6 +51,10 @@ RUN sudo grunt build
 ## Copy server.conf
 WORKDIR /ostis/scripts
 RUN sudo cp -f ../config/server.conf ../sc-web/server/
+
+#### Fix curl dependency {
+RUN sudo apt-get install -y libcurl4-openssl-dev
+####}
 
 # Prepare kb and problem-solver dirs
 WORKDIR /ostis
