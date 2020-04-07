@@ -27,7 +27,9 @@ WORKDIR /ostis/scripts
 RUN sudo git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/sc-machine.git ../sc-machine
 RUN sudo git clone --single-branch --branch 0.6.0 https://github.com/MikhailSadovsky/sc-web.git ../sc-web
 RUN sudo git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/ims.ostis.kb.git ../ims.ostis.kb
-RUN sudo apt-get -y install nodejs-dev node-gyp libssl1.0-dev curl python-pip python3
+RUN sudo apt-get -y update
+RUN sudo apt-get -y upgrade
+RUN sudo apt-get -y install nodejs-dev node-gyp libssl1.0-dev qtbase5-dev curl python-pip python3
 ## Prepare projects
 ### sc-machine
 WORKDIR /ostis/sc-machine/scripts
@@ -41,8 +43,7 @@ WORKDIR /ostis/sc-machine/scripts
 RUN sudo ./make_all.sh; exit 0
 RUN cat ../bin/config.ini | sudo tee -a ../../config/sc-web.ini
 ### sc-server web
-RUN sudo apt-get remove -y cmdtest
-RUN sudo apt-get remove -y yarn
+RUN sudo apt-get remove -y cmdtest yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 RUN sudo apt-get update
@@ -52,9 +53,11 @@ RUN sudo yarn && sudo yarn run webpack-dev
 ### sc-web
 WORKDIR /ostis/sc-web/scripts   
 RUN sudo pip3 install --default-timeout=100 future
-RUN sudo apt-get install python-setuptools
-RUN sudo apt-get install -y nodejs-dev node-gyp libssl1.0-dev
-RUN sudo ./install_deps_ubuntu.sh
+RUN sudo apt-get install -y python-setuptools
+RUN echo y | sudo ./install_deps_ubuntu.sh
+#### Fix node dependencies {
+RUN sudo apt-get install -y nodejs-dev node-gyp npm libssl1.0-dev
+#### }
 RUN echo y | sudo ./install_nodejs_dependence.sh
 WORKDIR /ostis/sc-web
 RUN sudo npm install
@@ -67,14 +70,14 @@ RUN sudo cp -f ../config/server.conf ../sc-web/server/
 WORKDIR /ostis
 RUN sudo rm ./ims.ostis.kb/ui/ui_start_sc_element.scs
 RUN sudo rm -rf ./kb/menu
-RUN echo "kb" | sudo tee -a ./repo.path
+RUN sudo mkdir problem-solver
+RUN sudo mkdir problem-solver/cxx
 RUN echo "problem-solver" | sudo tee -a ./repo.path
 
 # Include kpm
 WORKDIR /ostis/sc-machine
-RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' | sudo tee -a ./CMakeLists.txt
-WORKDIR /ostis/sc-machine/scripts
-RUN sudo ./make_all.sh; exit 0
+#RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' | sudo tee -a ./CMakeLists.txt
+RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' | sudo tee -a ./CMakeLists.txt
 
 # TODO: Cleanup dependencies
 
@@ -93,4 +96,5 @@ ENTRYPOINT sudo ./start_container.sh
 LABEL version="0.6.0"
 
 EXPOSE 8090
+EXPOSE 8000
 
