@@ -2,7 +2,7 @@
 
 PORT_NEW="8090"
 PORT_OLD="8000"
-IMAGE="ostis"
+IMAGE="ostis/ostis"
 VERSION="0.6.0"
 
 # Container paths
