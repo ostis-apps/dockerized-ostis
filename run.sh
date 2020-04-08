@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PORT="8000"
-IMAGE="ostis"
+IMAGE="ostis/ostis"
 VERSION="0.5.0"
 
 # Container paths
