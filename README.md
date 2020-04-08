@@ -9,19 +9,17 @@
 * problem-solvers
 
 ### Running the container
-Run the script with flags(if needed):
+Run this script with flags(if needed):
 ```bash
 ./run.sh
 ```
 Use `--help` flag to get more info about the script.
 
+This script will automatically pull docker image from [docker-hub](https://hub.docker.com/repository/docker/ostis/ostis).
+
 ### Building image manually
-Just run the script:
+You can use this script:
 ```bash
 ./build_image.sh
 ```
-
-### TODOS:
-1. Add updates and `--update` flag
-1. Saving projects in cache and add flags to list all projects and running project by name
 
