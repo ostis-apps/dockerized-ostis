@@ -1,4 +1,4 @@
-# Dickerized OSTIS
+# Dockerized OSTIS
 
 ### Installation
 1. Install docker
