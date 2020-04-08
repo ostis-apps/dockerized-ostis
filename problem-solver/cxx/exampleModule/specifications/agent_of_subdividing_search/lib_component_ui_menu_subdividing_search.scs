@@ -1,0 +1,11 @@
+lib_component_ui_menu_subdividing_search
+=> nrel_main_idtf:
+	[Компонент библиотеки. Команда пользовательского интерфейса поиска разбиений заданной сущности]
+	(* <- lang_ru;; *);
+	[Library component. User interfaces command of search of subdividing of the specified entity]
+	(* <- lang_en;; *);
+
+<- library_of_platform_independent_reusable_components;
+<- library_of_atomic_reusable_components;;
+
+lib_component_ui_menu_subdividing_search = [*^"file://ui_menu_subdividing_search.scsi"*];;

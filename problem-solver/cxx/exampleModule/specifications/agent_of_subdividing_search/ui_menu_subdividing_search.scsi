@@ -1,0 +1,29 @@
+ui_menu_subdividing_search <- ui_user_command_class_atom; ui_user_command_class_view_kb; ui_one_argument_command_class;;
+
+ui_menu_subdividing_search 
+=> nrel_main_idtf: 
+	[На что разбивается указанная сущность?]
+	(* <- lang_ru;; *);
+=> nrel_idtf: 
+	[Запрос поиски разбиений указанной сущности]
+	(* <- lang_ru;; *);;
+
+ui_menu_subdividing_search 
+=> nrel_main_idtf: 
+	[What is subdividing of the specified entity?]
+	(* <- lang_en;; *);
+=> nrel_idtf: 
+	[Request searches for subdividing of the specified entity]
+	(* <- lang_en;; *);;
+
+ui_menu_subdividing_search => ui_nrel_command_template:
+	[*
+		question_find_subdividing _-> ._question_find_subdividing_instance
+			(*
+				_-> ui_arg_1;;
+			*);;
+		._question_find_subdividing_instance _<- question;;
+	*];;
+
+ui_menu_subdividing_search => ui_nrel_command_lang_template: [На что разбивается $ui_arg_1] (* <- lang_ru;; *);;
+ui_menu_subdividing_search => ui_nrel_command_lang_template: [What is subdividing of $ui_arg_1] (* <- lang_en;; *);;
