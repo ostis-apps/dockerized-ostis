@@ -1,0 +1,10 @@
+ui_menu_na_example_commands
+<- ui_user_command_class_noatom;
+=> nrel_main_idtf:
+	[Примеры команд] (* <- lang_ru;; *);
+	[Command examples] (* <- lang_en;; *);
+
+<= nrel_ui_commands_decomposition:
+	{
+		ui_menu_subdividing_search
+	};;
