@@ -1,9 +1,5 @@
 #!/bin/sh
 
-cd ../sc-machine/scripts
-
-./make_all.sh
-
 cd ../../scripts
 
 redis-server &
