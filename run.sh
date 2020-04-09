@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PORT="8000"
-IMAGE="ostis"
+IMAGE="ostis/ostis"
 VERSION="scp_stable"
 
 # Container paths
