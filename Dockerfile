@@ -16,13 +16,15 @@ USER docker
 # Getting sc-machine from repo
 RUN sudo apt-get -y install git
 WORKDIR /ostis
-RUN sudo git clone --single-branch --branch 0.5.0 https://github.com/ShunkevichDV/ostis.git .
+RUN sudo apt-get -y update
+RUN sudo apt-get -y upgrade
+RUN sudo git clone --single-branch --branch master https://github.com/ShunkevichDV/ostis.git .
 
 # Prepare platform
 WORKDIR /ostis/scripts
 # Fix prepare.sh
 ## Clone projects
-RUN sudo git clone --single-branch --branch 0.5.0 https://github.com/ShunkevichDV/sc-machine.git ../sc-machine
+RUN sudo git clone --single-branch --branch scp_stable https://github.com/ShunkevichDV/sc-machine.git ../sc-machine
 RUN sudo git clone --single-branch --branch master https://github.com/Ivan-Zhukau/sc-web.git ../sc-web
 RUN sudo git clone --single-branch --branch master https://github.com/ShunkevichDV/ims.ostis.kb.git ../ims.ostis.kb
 RUN sudo apt-get -y install nodejs-dev node-gyp libssl1.0-dev curl python-pip python3
@@ -58,20 +60,14 @@ RUN sudo apt-get install -y libcurl4-openssl-dev
 
 # Prepare kb and problem-solver dirs
 WORKDIR /ostis
-RUN sudo rm ./ims.ostis.kb/ui/ui_start_sc_element.scs
-RUN sudo rm -rf ./kb/menu
+RUN sudo mkdir custom-kb
+RUN echo "custom-kb" | sudo tee -a ./repo.path
 RUN sudo mkdir problem-solver
-RUN sudo mkdir problem-solver/cxx
 RUN echo "problem-solver" | sudo tee -a ./repo.path
 WORKDIR /ostis/scripts
 COPY config /ostis/config
 #RUN sudo rm /ostis/config/sc-web.ini
 #RUN sudo ./build_kb.sh; exit 0
-
-# Include kpm
-WORKDIR /ostis/sc-machine
-#RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' >> ./CMakeLists.txt
-RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' | sudo tee -a ./CMakeLists.txt
 
 # TODO: Cleanup dependencies
 
@@ -87,7 +83,7 @@ ENTRYPOINT sudo ./start_container.sh
 #
 # Image config
 #
-LABEL version="0.5.0"
+LABEL version="scp_stable"
 
 EXPOSE 8000
 

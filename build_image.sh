@@ -1,7 +1,7 @@
 #!/bin/sh
 
 IMAGE="ostis"
-VERSION="0.5.0"
+VERSION="scp_stable"
 
 docker build -t ${IMAGE}:${VERSION} .
 
