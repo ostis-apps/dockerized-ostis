@@ -81,7 +81,7 @@ do
 done
 
 docker run -t -i \
-  -v ${KB_PATH}:${OSTIS_PATH}/kb \
+  -v ${KB_PATH}:${OSTIS_PATH}/custom-kb \
   -v ${PROBLEM_SOLVER_PATH}:${OSTIS_PATH}/problem-solver \
   -p ${PORT}:8000 \
   ${IMAGE}:${VERSION}
