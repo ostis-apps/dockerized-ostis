@@ -59,6 +59,7 @@ RUN sudo apt-get install -y libcurl4-openssl-dev
 # Prepare kb and problem-solver dirs
 WORKDIR /ostis
 RUN sudo mkdir custom-kb
+RUN echo "custom-kb" | sudo tee -a ./repo.path
 RUN sudo mkdir problem-solver
 RUN sudo mkdir problem-solver/cxx
 RUN echo "problem-solver" | sudo tee -a ./repo.path
