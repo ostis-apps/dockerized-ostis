@@ -60,8 +60,7 @@ RUN sudo apt-get install -y libcurl4-openssl-dev
 
 # Prepare kb and problem-solver dirs
 WORKDIR /ostis
-RUN sudo mkdir custom-kb
-RUN echo "custom-kb" | sudo tee -a ./repo.path
+RUN sudo mv ./ims.ostis.kb/ui/ui_start_sc_element.scs ./kb/ui_start_sc_element.scs
 RUN sudo mkdir problem-solver
 RUN echo "problem-solver" | sudo tee -a ./repo.path
 WORKDIR /ostis/scripts
