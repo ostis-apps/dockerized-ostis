@@ -72,8 +72,9 @@ RUN sudo apt-get install -y libcurl4-openssl-dev
 
 # Include kb
 WORKDIR /ostis
-RUN sudo rm ./ims.ostis.kb/ui/ui_start_sc_element.scs
-RUN sudo rm -rf ./kb/menu
+RUN sudo mkdir kb
+RUN sudo mv ./ims.ostis.kb/ui/ui_start_sc_element.scs ./kb/ui_start_sc_element.scs
+RUN sudo mv ./ims.ostis.kb/ui/menu ./kb
 RUN echo "kb" | sudo tee -a ./repo.path
 RUN sudo mkdir problem-solver
 RUN sudo mkdir problem-solver/cxx
