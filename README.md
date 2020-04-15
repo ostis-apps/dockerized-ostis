@@ -56,6 +56,31 @@ docker run -it -v /home/user01/test/kb:/ostis/kb -v /home/user01/test/problem-so
 ```
 
 
+## Run image locally using script
+
+Run script has additional useful options comparing to Quickstart section. To run:
+1. Clone [the repo](https://github.com/ostis-apps/dockerized-ostis):
+    ```
+    git clone https://github.com/ostis-apps/dockerized-ostis
+    ```
+2. Checkout to branch according to version you need
+3. Run the script with options (if needed):
+    ```bash
+    ./run.sh
+    ```
+
+Available options to use:
+* `--help` or `-h` option to see all available options with description
+* `--port` or `-p` option to set a custom port
+* `--kb` option to set custom knowledge base source folder path
+* `--solver` option to set custom problem solver source folder path
+* `--app` option to set an absolute path to the app directory. Note that the app folder structure should be same as in the [ostis-example-app](https://github.com/ostis-apps/ostis-example-app/tree/0.5.0). It should contain kb and problem-solver folders inside
+
+Example of usage:
+```bash
+./run.sh --app /home/user01/test/ostis-example-app
+```
+
 ## Building image locally
 
 To build image locally you will need:
@@ -69,32 +94,8 @@ To build image locally you will need:
     ./build_image.sh
     ```
 
-## Run image locally using script
-
-Run script has additional useful options comparing to Quickstart section. To run:
-1. Clone [the repo](https://github.com/ostis-apps/dockerized-ostis):
-    ```
-    git clone https://github.com/ostis-apps/dockerized-ostis
-    ```
-2. Checkout to branch according to version you need
-3. Run the script with options (if needed):
-    ```bash
-    ./run.sh
-    ```
-Available options to use:
-* `--help` or `-h` option to see all available options with description
-* `--port` or `-p` option to set a custom port
-* `--kb` option to set custom knowledge base source folder path
-* `--solver` option to set custom problem solver source folder path
-* `--app` option to set app folder path. Note that the app folder structure should be same as in the [ostis-example-app](https://github.com/ostis-apps/ostis-example-app/tree/0.5.0). It should contain kb and problem-solver folders inside
-
-Example of usage:
-```bash
-./run.sh --app /home/user01/test/ostis-example-app
-```
-
 ## Contribute
 
 Pull requests are very welcome!
 
-It would be great to hear your feedback and suggestions in the issue tracker: [github.com/ostis-apps/dockerized-ostis/issues](https://github.com/ostis-apps/dockerized-ostis/issues).
+It would be great to hear your feedback and suggestions in the [issue tracker](https://github.com/ostis-apps/dockerized-ostis/issues)!
