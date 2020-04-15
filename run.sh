@@ -8,10 +8,10 @@ VERSION="0.6.0"
 # Container paths
 OSTIS_PATH="/ostis"
 
-# Lacal paths
-PROJECT_PATH=${PWD}
-KB_PATH="${PROJECT_PATH}/kb"
-PROBLEM_SOLVER_PATH="${PROJECT_PATH}/problem-solver"
+# Local paths
+APP_PATH=${PWD}
+KB_PATH="${APP_PATH}/kb"
+PROBLEM_SOLVER_PATH="${APP_PATH}/problem-solver"
 
 help()
 {
@@ -24,8 +24,8 @@ USAGE:
 OPTIONS:
   --help -h    Print help message
   --port -p    Set a custom port for new client(CURRENTLY DOES'NT WORKS!!!)
-  --port_old    Set a custom port for old client(CURRENTLY DOES'NT WORKS!!!)
-  --project    Set a custom path to the project directory(By default, it is expected, that inside the project you have all default directories for kb, problem-solver etc)
+  --port_old   Set a custom port for old client(CURRENTLY DOES'NT WORKS!!!)
+  --app        Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
   --kb         Set a custom path to kb directory
   --solver     Set a custom path to problem-solvers deirectory
 EOM
@@ -58,14 +58,16 @@ do
         PORT_OLD="$2"
       fi
       ;;
-    --project)
+    --app)
       if [ -z "$2" ]
       then
-        echo "Cannot handle empty project path value!"
+        echo "Cannot handle empty app path value!"
         help
         exit 1
       else
-        PROJECT_PATH="$2"
+        APP_PATH="$2"
+        KB_PATH="${APP_PATH}/kb"
+        PROBLEM_SOLVER_PATH="${APP_PATH}/problem-solver"
       fi
       ;;
     --kb)
