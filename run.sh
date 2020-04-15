@@ -54,6 +54,8 @@ do
         exit 1
       else
         APP_PATH="$2"
+        KB_PATH="${APP_PATH}/kb"
+        PROBLEM_SOLVER_PATH="${APP_PATH}/problem-solver"
       fi
       ;;
     --kb)
