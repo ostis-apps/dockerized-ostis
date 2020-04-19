@@ -12,7 +12,7 @@ USER root
 RUN sudo apt-get update && apt-get --no-install-recommends -y install git python-pip \
     python-dev python-setuptools libcurl4-openssl-dev libglib2.0-dev \
     libantlr3c-dev libboost-system-dev libboost-filesystem-dev libboost-program-options-dev \
-    libboost-program-options-dev libboost-regex-dev cmake antlr3 libhiredis-dev g++ \
+    libboost-regex-dev cmake antlr3 libhiredis-dev g++ \
     qtbase5-dev llvm libclang-dev redis-server \
     && sudo rm -rf /var/lib/apt/lists/*
 
