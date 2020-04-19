@@ -15,9 +15,9 @@ Please find installation instructions for your operating system [here](https://d
 To find an actual versions released as Docker images please see the [list of Docker hub tags](https://hub.docker.com/r/ostis/ostis/tags/).
 
 Current versions:
-* `scp_stable` - allows usage of agents on SCP. Please find more info [here](https://github.com/ostis-apps/ostis-example-app/tree/scp_stable)
-* `0.5.0` - allows usage of agents on C++. Please find more info [here](https://github.com/ostis-apps/ostis-example-app/tree/0.5.0)
-* `0.6.0` -  allows usage of [JSON-based Websocket protocol](http://ostis-dev.github.io/sc-machine/http/websocket/) to communicate with knowledge base and new interface version. Please find more info [here](https://github.com/ostis-apps/ostis-example-app/tree/0.6.0)
+* [`scp_stable`](https://github.com/ostis-apps/ostis-example-app/tree/scp_stable) - allows usage of agents on SCP.
+* [`0.5.0`](https://github.com/ostis-apps/ostis-example-app/tree/0.5.0) - allows usage of agents on C++.
+* [`0.6.0`](https://github.com/ostis-apps/ostis-example-app/tree/0.6.0) -  allows usage of [JSON-based Websocket protocol](http://ostis-dev.github.io/sc-machine/http/websocket/) to communicate with knowledge base, and new interface version.
 
 ## Quickstart
 You can run the OSTIS container like so:
@@ -56,22 +56,10 @@ docker run -it -v /home/user01/test/kb:/ostis/kb -v /home/user01/test/problem-so
 ```
 
 
-## Building image locally
-
-To build image locally you will need:
-1. Clone the repo:
-    ```
-    git clone https://github.com/ostis-apps/dockerized-ostis
-    ```
-2. Checkout to branch according to version you need
-3. Run build image script:
-    ```bash
-    ./build_image.sh
-    ```
 ## Run image locally using script
 
 Run script has additional useful options comparing to Quickstart section. To run:
-1. Clone the repo:
+1. Clone [the repo](https://github.com/ostis-apps/dockerized-ostis):
     ```
     git clone https://github.com/ostis-apps/dockerized-ostis
     ```
@@ -80,20 +68,34 @@ Run script has additional useful options comparing to Quickstart section. To run
     ```bash
     ./run.sh
     ```
+
 Available options to use:
 * `--help` or `-h` option to see all available options with description
 * `--port` or `-p` option to set a custom port
 * `--kb` option to set custom knowledge base source folder path
 * `--solver` option to set custom problem solver source folder path
-* `--app` option to set app folder path. Note that the app folder structure should be same as in the [ostis-example-app](https://github.com/ostis-apps/ostis-example-app/tree/0.5.0). It should contain kb and problem-solver folders inside
+* `--app` option to set an absolute path to the app directory. Note that the app folder structure should be same as in the [ostis-example-app](https://github.com/ostis-apps/ostis-example-app/tree/0.5.0). It should contain kb and problem-solver folders inside
 
 Example of usage:
 ```bash
 ./run.sh --app /home/user01/test/ostis-example-app
 ```
 
+## Building image locally
+
+To build image locally you will need:
+1. Clone [the repo](https://github.com/ostis-apps/dockerized-ostis):
+    ```
+    git clone https://github.com/ostis-apps/dockerized-ostis
+    ```
+2. Checkout to branch according to version you need
+3. Run build image script:
+    ```bash
+    ./build_image.sh
+    ```
+
 ## Contribute
 
 Pull requests are very welcome!
 
-It would be great to hear your feedback and suggestions in the issue tracker: [github.com/ostis-apps/dockerized-ostis/issues](https://github.com/ostis-apps/dockerized-ostis/issues).
+It would be great to hear your feedback and suggestions in the [issue tracker](https://github.com/ostis-apps/dockerized-ostis/issues)!
