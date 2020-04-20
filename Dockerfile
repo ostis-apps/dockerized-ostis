@@ -4,93 +4,70 @@ FROM ubuntu:18.04
 # Creating image
 #
 # Add sudo user
-RUN apt-get update
-RUN apt-get install sudo
+RUN apt-get update && apt-get install -y sudo
 
-RUN adduser --disabled-password --gecos '' docker
-RUN adduser docker sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+USER root
 
-USER docker
+# Getting dependencies
+RUN sudo apt-get update && apt-get -y install git redis-server python-pip python3 qtbase5-dev curl \
+    && sudo rm -rf /var/lib/apt/lists/*
 
-# Install OSTIS platform
-RUN sudo apt-get -y install git
-WORKDIR /
-RUN sudo apt-get -y update
-RUN sudo apt-get -y upgrade
-RUN sudo git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/ostis.git
+WORKDIR /ostis
 
-# Prepare platform
-WORKDIR /ostis/scripts
-# Fix prepare.sh
 ## Clone projects
-RUN sudo git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/sc-machine.git ../sc-machine
-RUN sudo git clone --single-branch --branch 0.6.0 https://github.com/MikhailSadovsky/sc-web.git ../sc-web
-RUN sudo git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/ims.ostis.kb.git ../ims.ostis.kb
-RUN sudo apt-get -y update
-RUN sudo apt-get -y upgrade
-RUN sudo apt-get -y install nodejs-dev node-gyp libssl1.0-dev qtbase5-dev curl python-pip python3
-## Prepare projects
+RUN git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/ostis.git . && \
+    git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/sc-machine.git && \
+    git clone --single-branch --branch 0.6.0 https://github.com/MikhailSadovsky/sc-web.git && \
+    git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/ims.ostis.kb.git
+
 ### sc-machine
 WORKDIR /ostis/sc-machine/scripts
 RUN python3Version=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))') && \
     sudo sed -i -e "s/python3.5-dev/python${python3Version}-dev/" ./install_deps_ubuntu.sh && \
-    sudo sed -i -e "s/python3.5-dev/python${python3Version}/" ./install_deps_ubuntu.sh
-RUN echo y | sudo ./install_deps_ubuntu.sh
+    sudo sed -i -e "s/python3.5-dev/python${python3Version}/" ./install_deps_ubuntu.sh && \
+    sudo apt-get update && echo y | sudo ./install_deps_ubuntu.sh && \
+    sudo rm -rf /var/lib/apt/lists/*
+
 WORKDIR /ostis/sc-machine
+
 RUN pip3 install -r requirements.txt
+
 WORKDIR /ostis/sc-machine/scripts
-RUN sudo ./make_all.sh; exit 0
+
+RUN sudo ./make_all.sh
 RUN cat ../bin/config.ini | sudo tee -a ../../config/sc-web.ini
+
 ### sc-server web
-RUN sudo apt-get remove -y cmdtest yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-RUN sudo apt-get update
-RUN sudo apt-get install -y yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
+    sudo apt-get update && sudo apt-get install -y yarn && sudo rm -rf /var/lib/apt/lists/*
+
 WORKDIR /ostis/sc-machine/web/client
 RUN sudo yarn && sudo yarn run webpack-dev
+
 ### sc-web
 WORKDIR /ostis/sc-web/scripts   
-RUN sudo pip3 install --default-timeout=100 future
-RUN sudo apt-get install -y python-setuptools
-RUN echo y | sudo ./install_deps_ubuntu.sh
-#### Fix node dependencies {
-RUN sudo apt-get install -y nodejs-dev node-gyp npm libssl1.0-dev
-#### }
-RUN echo y | sudo ./install_nodejs_dependence.sh
-WORKDIR /ostis/sc-web
-RUN sudo npm install
-RUN sudo grunt build
+
+#Install sc-web dependencies
+RUN sudo pip install --default-timeout=100 future tornado sqlalchemy redis==2.9 numpy configparser && \
+    sudo apt-get update && apt-get --no-install-recommends install -y nodejs-dev node-gyp npm libssl1.0-dev && \
+    sudo rm -rf /var/lib/apt/lists/* && sudo npm install -g grunt-cli && npm install && sudo grunt build
 ## Copy server.conf
 WORKDIR /ostis/scripts
 RUN sudo cp -f ../config/server.conf ../sc-web/server/
 
-#### Fix curl dependency {
-RUN sudo apt-get install -y libcurl4-openssl-dev
-####}
-
 # Include kb
 WORKDIR /ostis
-RUN sudo mkdir kb
-RUN sudo mv ./ims.ostis.kb/ui/ui_start_sc_element.scs ./kb/ui_start_sc_element.scs
-RUN sudo mv ./ims.ostis.kb/ui/menu ./kb
-RUN echo "kb" | sudo tee -a ./repo.path
-RUN sudo mkdir problem-solver
-RUN sudo mkdir problem-solver/cxx
-RUN echo "problem-solver" | sudo tee -a ./repo.path
+RUN sudo mkdir kb && sudo mv ./ims.ostis.kb/ui/ui_start_sc_element.scs ./kb/ui_start_sc_element.scs && \
+    sudo mv ./ims.ostis.kb/ui/menu ./kb && echo "kb" | sudo tee -a ./repo.path && sudo mkdir -p problem-solver/cxx && \
+    echo "problem-solver" | sudo tee -a ./repo.path
 
 # Include kpm
 WORKDIR /ostis/sc-machine
-#RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' | sudo tee -a ./CMakeLists.txt
-RUN echo 'add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' | sudo tee -a ./CMakeLists.txt
+RUN sudo apt-get update && sudo apt-get --no-install-recommends install -y libcurl4-openssl-dev && \
+    echo 'add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' | sudo tee -a ./CMakeLists.txt
 
-# TODO: Cleanup dependencies
-
-#
-# Run sc-server
-#
-# TODO: update client
+# Copy start container script
 COPY scripts/start_container.sh /ostis/scripts
 
 WORKDIR /ostis/scripts
