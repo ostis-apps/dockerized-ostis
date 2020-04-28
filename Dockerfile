@@ -34,16 +34,12 @@ RUN pip3 install -r requirements.txt
 
 WORKDIR /ostis/sc-machine/scripts
 
-RUN sudo ./make_all.sh
-RUN cat ../bin/config.ini | sudo tee -a ../../config/sc-web.ini
-
 ### sc-server web
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
     sudo apt-get update && sudo apt-get install -y yarn && sudo rm -rf /var/lib/apt/lists/*
 
 WORKDIR /ostis/sc-machine/web/client
-RUN sudo yarn && sudo yarn run webpack-dev
 
 ### sc-web
 WORKDIR /ostis/sc-web/scripts   
