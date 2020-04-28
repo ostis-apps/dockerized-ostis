@@ -26,7 +26,8 @@ RUN python3Version=$(python3 -c 'import sys; print(".".join(map(str, sys.version
     sudo sed -i -e "s/python3.5-dev/python${python3Version}-dev/" ./install_deps_ubuntu.sh && \
     sudo sed -i -e "s/python3.5-dev/python${python3Version}/" ./install_deps_ubuntu.sh && \
     sudo apt-get update && echo y | sudo ./install_deps_ubuntu.sh && \
-    sudo rm -rf /var/lib/apt/lists/* && sudo ./make_all.sh
+    sudo rm -rf /var/lib/apt/lists/*
+RUN ./make_all.sh
 
 ### sc-web
 WORKDIR /ostis/sc-web/scripts
