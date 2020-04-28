@@ -33,6 +33,8 @@ WORKDIR /ostis/sc-machine
 RUN pip3 install -r requirements.txt
 
 WORKDIR /ostis/sc-machine/scripts
+RUN sudo ./make_all.sh
+RUN cat ../bin/config.ini | sudo tee -a ../../config/sc-web.ini
 
 ### sc-server web
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
@@ -40,6 +42,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
     sudo apt-get update && sudo apt-get install -y yarn && sudo rm -rf /var/lib/apt/lists/*
 
 WORKDIR /ostis/sc-machine/web/client
+RUN sudo yarn
 
 ### sc-web
 WORKDIR /ostis/sc-web/scripts   
