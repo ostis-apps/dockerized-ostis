@@ -12,6 +12,9 @@ OSTIS_PATH="/ostis"
 APP_PATH=${PWD}
 KB_PATH="${APP_PATH}/kb"
 PROBLEM_SOLVER_PATH="${APP_PATH}/problem-solver"
+SCRIPTS_PATH="${OSTIS_PATH}/scripts"
+
+SCRIPT_FLAGS=""
 
 help()
 {
@@ -28,6 +31,8 @@ OPTIONS:
   --app        Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
   --kb         Set a custom path to kb directory
   --solver     Set a custom path to problem-solvers deirectory
+  --sc-web     Run sc-web only
+  --sctp       Run sctp only
 EOM
 }
 
@@ -90,6 +95,12 @@ do
         PROBLEM_SOLVER_PATH="$2"
       fi
       ;;
+    --sc-web)
+      SCRIPT_FLAGS="${SCRIPT_FLAGS} --sc-web"
+      ;;
+    --sctp)
+      SCRIPT_FLAGS="${SCRIPT_FLAGS} --sctp"
+      ;;
     esac
     shift
 done
@@ -99,7 +110,8 @@ docker run -t -i \
   -v ${PROBLEM_SOLVER_PATH}:${OSTIS_PATH}/problem-solver \
   -p ${PORT_NEW}:8090 \
   -p ${PORT_OLD}:8000 \
-  ${IMAGE}:${VERSION}
+  ${IMAGE}:${VERSION} \
+  sh ${SCRIPTS_PATH}/ostis ${SCRIPT_FLAGS}
 
 exit
 
