@@ -53,10 +53,9 @@ RUN sudo apt-get update && sudo apt-get --no-install-recommends install -y libcu
     echo 'add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' | sudo tee -a ./CMakeLists.txt
 
 # Copy start container script
-COPY scripts/start_container.sh /ostis/scripts
+COPY scripts/ostis /ostis/scripts/
 
 WORKDIR /ostis/scripts
-ENTRYPOINT sudo ./start_container.sh
 
 #
 # Image config

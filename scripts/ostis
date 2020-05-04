@@ -1,0 +1,51 @@
+#!/bin/sh
+
+help()
+{
+  cat << EOM
+This is a tool for starting up OSTIS system.
+
+USAGE:
+  ./ostis [OPTIONS]
+
+OPTIONS:
+  --help -h    Print help message
+  --sc-web     Run sc-web only
+  --sctp       Run sctp only
+EOM
+}
+
+while [ $# -ne 0 ]
+do
+  case "$1" in
+    --help | -h)
+      help
+      exit 0
+      ;;
+    --sc-web)
+      RUN_ONLY="sc-web"
+      ;;
+    --sctp)
+      RUN_ONLY="sctp"
+      ;;
+    esac
+    shift
+done
+
+if [ "${RUN_ONLY}" != "sc-web" ]
+then
+  cd /ostis/sc-machine/scripts
+  ./make_all.sh
+  ./build_kb.sh
+  ./run_sctp.sh &
+fi
+
+if [ "${RUN_ONLY}" != "sctp" ]
+then
+  cd /ostis/scripts
+  redis-server &
+
+  echo "\n\e[1;32mStarting sc-web on http://localhost:8000...\e[0m\n"
+  ./run_scweb.sh
+fi
+
