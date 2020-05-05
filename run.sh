@@ -22,14 +22,15 @@ help()
 This is a tool for running container with OSTIS.
 
 USAGE:
-  ./run.sh [OPTIONS][OSTIS FLAGS]
+  ./run.sh [OPTIONS]
 
 OPTIONS:
-  --help -h    Print help message
-  --port -p    Set a custom port
-  --app        Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
-  --kb         Set a custom path to kb directory
-  --solver     Set a custom path to problem-solvers deirectory
+  --help -h         Print help message
+  --port -p         Set a custom port
+  --app             Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
+  --kb              Set a custom path to kb directory
+  --solver          Set a custom path to problem-solvers deirectory
+  --startflags --sf To set container startup flags. Example of usage: --startflags "--kb --web"
 
 OSTIS FLAGS:
   --help -h             Print help message
@@ -90,8 +91,15 @@ do
         PROBLEM_SOLVER_PATH="$2"
       fi
       ;;
-    --all | -a | --sc-machine | --scm | --kb | --build_kb | --sc-web | --web | --sctp)
-      SCRIPT_FLAGS="${SCRIPT_FLAGS} $1"
+    --startflags | --sf)
+      if [ -z "$2" ]
+      then
+        echo "Cannot handle empty startup flags!"
+        help
+        exit 1
+      else
+        SCRIPT_FLAGS="$2"
+      fi
     esac
     shift
 done
@@ -100,6 +108,7 @@ if [ -z "${SCRIPT_FLAGS}" ]
 then
   SCRIPT_FLAGS="--all"
 fi
+
 
 docker run -t -i \
   -v ${KB_PATH}:${OSTIS_PATH}/kb \
