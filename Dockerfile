@@ -48,10 +48,9 @@ WORKDIR /ostis/scripts
 COPY config /ostis/config
 
 # Copy start container script
-COPY scripts/start_container.sh /ostis/scripts
+COPY scripts/ostis /ostis/scripts/
 
 WORKDIR /ostis/scripts
-ENTRYPOINT sudo ./start_container.sh
 
 #
 # Image config
@@ -59,4 +58,5 @@ ENTRYPOINT sudo ./start_container.sh
 LABEL version="scp_stable"
 
 EXPOSE 8000
+EXPOSE 55770
 

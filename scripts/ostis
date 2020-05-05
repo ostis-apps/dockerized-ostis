@@ -1,0 +1,77 @@
+#!/bin/sh
+
+redis()
+{
+  REDIS_STATUS=$(sudo service --status-all | grep redis-server)
+  if [ "$REDIS_STATUS" != " [ + ]  redis-server" ]
+  then
+    redis-server &
+  fi
+}
+
+build_kb()
+{
+  cd /ostis/scripts
+  ./build_kb.sh
+}
+
+sctp()
+{
+  cd /ostis/scripts
+  ./run_sctp.sh &
+}
+
+sc_web()
+{
+  cd /ostis/scripts
+  echo "\n\e[1;32mStarting sc-web on http://localhost:8000...\e[0m\n"
+  ./run_scweb.sh &
+}
+
+help()
+{
+  cat << EOM
+This is a tool for starting up OSTIS system.
+USAGE:
+  ./ostis [OPTIONS]
+OPTIONS:
+  --help -h             Print help message
+  --all -a              Run all services
+  --build_kb --kb       Rebuild kb
+  --sc-web --web        Run sc-web only
+  --sctp                Run sctp only
+EOM
+}
+
+while [ $# -ne 0 ]
+do
+  case "$1" in
+    --help | -h)
+      help
+      exit 0
+      ;;
+    --all | -a)
+      redis
+      build_kb
+      sctp
+      sc_web
+      ;;
+    --build_kb | --kb)
+      redis
+      build_kb
+      ;;
+    --sc-web | --web)
+      redis
+      sc_web
+      ;;
+    --sctp)
+      sctp
+      ;;
+    esac
+    shift
+done
+
+wait
+
+exit
+
