@@ -63,4 +63,5 @@ WORKDIR /ostis/scripts
 LABEL version="0.5.0"
 
 EXPOSE 8000
+EXPOSE 55770
 

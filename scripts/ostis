@@ -1,5 +1,39 @@
 #!/bin/sh
 
+redis()
+{
+  REDIS_STATUS=$(sudo service --status-all | grep redis-server)
+  if [ "$REDIS_STATUS" != " [ + ]  redis-server" ]
+  then
+    redis-server &
+  fi
+}
+
+make_all()
+{
+  cd /ostis/sc-machine/scripts
+  ./make_all.sh
+}
+
+build_kb()
+{
+  cd /ostis/scripts
+  ./build_kb.sh
+}
+
+sctp()
+{
+  cd /ostis/scripts
+  ./run_sctp.sh &
+}
+
+sc_web()
+{
+  cd /ostis/scripts
+  echo "\n\e[1;32mStarting sc-web on http://localhost:8000...\e[0m\n"
+  ./run_scweb.sh &
+}
+
 help()
 {
   cat << EOM
@@ -9,9 +43,12 @@ USAGE:
   ./ostis [OPTIONS]
 
 OPTIONS:
-  --help -h    Print help message
-  --sc-web     Run sc-web only
-  --sctp       Run sctp only
+  --help -h             Print help message
+  --all -a              Run all services
+  --sc-mashine --scm    Rebuild sc-machine
+  --build_kb --kb       Rebuild kb
+  --sc-web --web        Run sc-web only
+  --sctp                Run sctp only
 EOM
 }
 
@@ -22,30 +59,32 @@ do
       help
       exit 0
       ;;
-    --sc-web)
-      RUN_ONLY="sc-web"
+    --all | -a)
+      redis
+      build_kb
+      make_all
+      sctp
+      sc_web
+      ;;
+    --sc-mashine | --scm)
+      make_all
+      ;;
+    --build_kb | --kb)
+      redis
+      build_kb
+      ;;
+    --sc-web | --web)
+      redis
+      sc_web
       ;;
     --sctp)
-      RUN_ONLY="sctp"
+      sctp
       ;;
     esac
     shift
 done
 
-if [ "${RUN_ONLY}" != "sc-web" ]
-then
-  cd /ostis/sc-machine/scripts
-  ./make_all.sh
-  ./build_kb.sh
-  ./run_sctp.sh &
-fi
+wait
 
-if [ "${RUN_ONLY}" != "sctp" ]
-then
-  cd /ostis/scripts
-  redis-server &
-
-  echo "\n\e[1;32mStarting sc-web on http://localhost:8000...\e[0m\n"
-  ./run_scweb.sh
-fi
+exit
 
