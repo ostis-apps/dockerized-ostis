@@ -30,7 +30,7 @@ OPTIONS:
   --app             Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
   --kb              Set a custom path to kb directory
   --solver          Set a custom path to problem-solvers deirectory
-  --startflags --sf To set container startup flags. Example of usage: --startflags "--kb --web"
+  --startflags --sf To set container startup flags(using --all by default). Usage: --startflags "[OSTIS FLAGS]"
 
 OSTIS FLAGS:
   --help -h             Print help message
