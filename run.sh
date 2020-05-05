@@ -7,12 +7,13 @@ VERSION="0.6.0"
 
 # Container paths
 OSTIS_PATH="/ostis"
+OSTIS_SCRIPTS_PATH="${OSTIS_PATH}/scripts"
 
 # Local paths
 APP_PATH=${PWD}
 KB_PATH="${APP_PATH}/kb"
 PROBLEM_SOLVER_PATH="${APP_PATH}/problem-solver"
-SCRIPTS_PATH="${OSTIS_PATH}/scripts"
+SCRIPTS_PATH="${APP_PATH}/scripts"
 
 SCRIPT_FLAGS=""
 
@@ -31,8 +32,14 @@ OPTIONS:
   --app        Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
   --kb         Set a custom path to kb directory
   --solver     Set a custom path to problem-solvers deirectory
-  --sc-web     Run sc-web only
-  --sctp       Run sctp only
+
+OSTIS FLAGS:
+  --help -h             Print help message
+  --all -a              Run all services
+  --sc-mashine --scm    Rebuild sc-machine
+  --build_kb --kb       Rebuild kb
+  --sc-web --web        Run sc-web only
+  --sctp                Run sctp only
 EOM
 }
 
@@ -95,15 +102,16 @@ do
         PROBLEM_SOLVER_PATH="$2"
       fi
       ;;
-    --sc-web)
-      SCRIPT_FLAGS="${SCRIPT_FLAGS} --sc-web"
-      ;;
-    --sctp)
-      SCRIPT_FLAGS="${SCRIPT_FLAGS} --sctp"
-      ;;
+    --all | -a | --sc-machine | --scm | --kb | --build_kb | --sc-web | --web | --sctp)
+      SCRIPT_FLAGS="${SCRIPT_FLAGS} $1"
     esac
     shift
 done
+
+if [ -z "${SCRIPT_FLAGS}" ]
+then
+  SCRIPT_FLAGS="--all"
+fi
 
 docker run -t -i \
   -v ${KB_PATH}:${OSTIS_PATH}/kb \
@@ -111,7 +119,7 @@ docker run -t -i \
   -p ${PORT_NEW}:8090 \
   -p ${PORT_OLD}:8000 \
   ${IMAGE}:${VERSION} \
-  sh ${SCRIPTS_PATH}/ostis ${SCRIPT_FLAGS}
+  sh ${OSTIS_SCRIPTS_PATH}/ostis ${SCRIPT_FLAGS}
 
 exit
 

@@ -1,5 +1,33 @@
 #!/bin/sh
 
+make_all()
+{
+  cd /ostis/sc-machine/scripts
+  ./make_all.sh
+}
+
+build_kb()
+{
+  cd /ostis/scripts
+  ./build_kb.sh
+}
+
+sctp()
+{
+  cd /ostis/scripts
+  ./run_sctp.sh &
+}
+
+sc_web()
+{
+  cd /ostis/sc-machine/web/client
+  yarn run webpack-dev
+
+  cd /ostis/scripts
+  echo "\n\e[1;32mStarting the old sc-web on http://localhost:8000 and the new on http://localhost:8090...\e[0m\n"
+  ./run_scweb.sh &
+}
+
 help()
 {
   cat << EOM
@@ -7,9 +35,12 @@ This is a tool for starting up OSTIS system.
 USAGE:
   ./ostis [OPTIONS]
 OPTIONS:
-  --help -h    Print help message
-  --sc-web     Run sc-web only
-  --sctp       Run sctp only
+  --help -h             Print help message
+  --all -a              Run all services
+  --sc-mashine --scm    Rebuild sc-machine
+  --build_kb --kb       Rebuild kb
+  --sc-web --web        Run sc-web only
+  --sctp                Run sctp only
 EOM
 }
 
@@ -20,36 +51,29 @@ do
       help
       exit 0
       ;;
-    --sc-web)
-      RUN_ONLY="sc-web"
+    --all | -a)
+      build_kb
+      make_all
+      sctp
+      sc_web
+      ;;
+    --sc-mashine | --scm)
+      make_all
+      ;;
+    --build_kb | --kb)
+      build_kb
+      ;;
+    --sc-web | --web)
+      sc_web
       ;;
     --sctp)
-      RUN_ONLY="sctp"
+      sctp
       ;;
     esac
     shift
 done
 
-if [ "${RUN_ONLY}" != "sc-web" ]
-then
-  cd /ostis/scripts
-  ./build_kb.sh
+wait
 
-  cd /ostis/sc-machine/scripts
-  ./make_all.sh
-
-  cd /ostis/scripts
-  ./run_sctp.sh &
-fi
-
-if [ "${RUN_ONLY}" != "sctp" ]
-then
-  cd /ostis/sc-machine/web/client
-  yarn run webpack-dev
-
-  cd /ostis/scripts
-  echo "\n\e[1;32mStarting the old sc-web on http://localhost:8000 and the new on http://localhost:8090...\e[0m\n"
-  ./run_scweb.sh
-fi
-
+exit
 
