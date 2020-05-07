@@ -1,0 +1,1 @@
+docker stop clion_remote_env

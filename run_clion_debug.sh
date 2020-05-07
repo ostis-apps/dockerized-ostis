@@ -1,8 +1,8 @@
 #!/bin/sh
 
 PORT="8000"
-IMAGE="ostis/ostis"
-VERSION="0.5.0"
+IMAGE="clion/remote-cpp-env"
+VERSION="0.5"
 
 # Container paths
 OSTIS_PATH="/ostis"
@@ -109,7 +109,7 @@ then
   SCRIPT_FLAGS="--all"
 fi
 
-docker run -t -i \
+docker run -d --cap-add sys_ptrace -p127.0.0.1:2222:22 --name clion_remote_env \
   -v ${KB_PATH}:${OSTIS_PATH}/kb \
   -v ${PROBLEM_SOLVER_PATH}:${OSTIS_PATH}/problem-solver \
   -p ${PORT}:8000 \
