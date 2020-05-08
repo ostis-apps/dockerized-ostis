@@ -37,6 +37,8 @@ RUN ( \
 RUN useradd -m user \
   && yes password | passwd user
 
+RUN chmod ugo+rw /ostis/sc-machine
+
 WORKDIR /ostis/problem-solver
 
 CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config_test_clion"]
