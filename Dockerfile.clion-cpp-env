@@ -31,6 +31,7 @@ RUN ( \
     echo 'PermitRootLogin yes'; \
     echo 'PasswordAuthentication yes'; \
     echo 'Subsystem sftp /usr/lib/openssh/sftp-server'; \
+    echo 'ChrootDirectory /'; \
   ) > /etc/ssh/sshd_config_test_clion \
   && mkdir /run/sshd
 
