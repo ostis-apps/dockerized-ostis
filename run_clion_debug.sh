@@ -109,12 +109,13 @@ then
   SCRIPT_FLAGS="--all"
 fi
 
-docker run -d --cap-add sys_ptrace -p127.0.0.1:2222:22 --name clion_remote_env \
+docker run -it --cap-add sys_ptrace -p127.0.0.1:2222:22 --name clion_remote_env \
   -v ${KB_PATH}:${OSTIS_PATH}/kb \
   -v ${PROBLEM_SOLVER_PATH}:${OSTIS_PATH}/problem-solver \
   -p ${PORT}:8000 \
   ${IMAGE}:${VERSION} \
-  ${OSTIS_SCRIPTS_PATH}/ostis ${SCRIPT_FLAGS}
+  sh -c "${OSTIS_SCRIPTS_PATH}/ostis ${SCRIPT_FLAGS} & \
+  /usr/sbin/sshd -D -e -f /etc/ssh/sshd_config_test_clion"
 
 exit
 
