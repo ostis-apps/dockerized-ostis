@@ -12,14 +12,15 @@ OSTIS_SCRIPTS_PATH="${OSTIS_PATH}/scripts"
 APP_PATH=${PWD}
 KB_PATH="${APP_PATH}/kb"
 PROBLEM_SOLVER_PATH="${APP_PATH}/problem-solver"
-SCRIPTS_PATH="${APP_PATH}/scripts"
+SCRIPTS_PATH="${PWD}/scripts"
 
 SCRIPT_FLAGS=""
+DEFAULT_FLAGS="--build_kb --sc-web"
 
 help()
 {
   cat << EOM
-This is a tool for running container with OSTIS.
+This is a tool for running clion OSTIS debug container container.
 
 USAGE:
   ./run.sh [OPTIONS]
@@ -30,7 +31,7 @@ OPTIONS:
   --app             Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
   --kb              Set a custom path to kb directory
   --solver          Set a custom path to problem-solvers deirectory
-  --startflags --sf To set container startup flags(using --all by default). Usage: --startflags "[OSTIS FLAGS]"
+  --startflags --sf To set container startup flags(using ${DEFAULT_FLAGS} by default). Usage: --startflags "[OSTIS FLAGS]"
 
 OSTIS FLAGS:
   --help -h             Print help message
@@ -106,7 +107,7 @@ done
 
 if [ -z "${SCRIPT_FLAGS}" ]
 then
-  SCRIPT_FLAGS="--all"
+  SCRIPT_FLAGS=${DEFAULT_FLAGS}
 fi
 
 docker run -it --cap-add sys_ptrace -p127.0.0.1:2222:22 --name clion_remote_env \
