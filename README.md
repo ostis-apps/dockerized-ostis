@@ -83,7 +83,7 @@ Run script has additional useful options comparing to Quickstart section. To run
   * `--port -p` - Set a custom port
   * `--app` - Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc, like in [ostis-example-app](https://github.com/ostis-apps/ostis-example-app/tree/0.5.0))
   * `--kb` - Set a custom path to kb directory
-  * `--solver` - Set a custom path to problem-solvers deirectory
+  * `--solver` - Set a custom path to problem-solvers directory
   * `--startflags --sf` - To set container startup flags(using `--all` by default). Usage: `--startflags "[OSTIS FLAGS]"` (quotes are necessary for multiple flags!)
     Example of usage:
   ```bash

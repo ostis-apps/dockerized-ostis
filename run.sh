@@ -31,7 +31,7 @@ OPTIONS:
   --port_old        Set a custom port for old client
   --app             Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
   --kb              Set a custom path to kb directory
-  --solver          Set a custom path to problem-solvers deirectory
+  --solver          Set a custom path to problem-solvers directory
   --startflags --sf To set container startup flags(using --all by default). Usage: --startflags "[OSTIS FLAGS]"
 
 OSTIS FLAGS:
