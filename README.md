@@ -79,13 +79,13 @@ Run script has additional useful options comparing to Quickstart section. To run
   ```bash
   run.sh --help
   ```  
-  OPTIONS:
-    * `--help -h` - Print help message
-    * `--port -p` - Set a custom port
-    * `--app` - Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
-    * `--kb` - Set a custom path to kb directory
-    * `--solver` - Set a custom path to problem-solvers deirectory
-    * `--startflags --sf` - To set container startup flags(using `--all` by default). Usage: `--startflags "[OSTIS FLAGS]"`
+  OPTIONS:  
+  * `--help -h` - Print help message
+  * `--port -p` - Set a custom port
+  * `--app` - Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
+  * `--kb` - Set a custom path to kb directory
+  * `--solver` - Set a custom path to problem-solvers deirectory
+  * `--startflags --sf` - To set container startup flags(using `--all` by default). Usage: `--startflags "[OSTIS FLAGS]"`
     Example of usage:
     ```bash
     ./run.sh --app ~/ostis-example-app
@@ -132,12 +132,12 @@ To build image locally you will need:
   ./clion_debug/run_clion_debug.sh --help
   ```
   OPTIONS:
-    * `--help -h` - Print help message
-    * `--port -p` - Set a custom port
-    * `--app` - Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
-    * `--kb` - Set a custom path to kb directory
-    * `--solver` - Set a custom path to problem-solvers deirectory
-    * `--startflags --sf` - To set container startup flags(using `--build_kb --sc-web` by default). Usage: `--startflags "[OSTIS FLAGS]"`  
+  * `--help -h` - Print help message
+  * `--port -p` - Set a custom port
+  * `--app` - Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
+  * `--kb` - Set a custom path to kb directory
+  * `--solver` - Set a custom path to problem-solvers deirectory
+  * `--startflags --sf` - To set container startup flags(using `--build_kb --sc-web` by default). Usage: `--startflags "[OSTIS FLAGS]"`  
 3. Debug your code! (See project configuration below)
 4. After finishing your work stop and remove debug container:
   ```bash
