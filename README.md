@@ -75,10 +75,10 @@ Run script has additional useful options comparing to Quickstart section. To run
   ```bash
   ./run.sh [OPTIONS]
   ```
-    See flags with
+  See flags with
   ```bash
   run.sh --help
-  ```  
+  ```
   OPTIONS:  
   * `--help -h` - Print help message
   * `--port -p` - Set a custom port
@@ -113,9 +113,9 @@ To build image locally you will need:
   git clone --single-branch --branch 0.5.0 https://github.com/ShunkevichDV/sc-machine.git
   ```
 2. Add problem-solver folder with your agents beside the sc-machine's folder.  
-  ![folders](./img/clion/folders.png)
+    ![folders](./img/clion/folders.png)
 3. Add `SET(CMAKE_BUILD_TYPE Debug)` at the end of `CMakeLists.txt` of your module.  
-  ![cmake of example module](./img/clion/cmake_file.png) 
+    ![cmake of example module](./img/clion/cmake_file.png) 
 
 ### Workflow with configured CLion
 
@@ -147,20 +147,20 @@ To build image locally you will need:
 ### Configuring CLion
 
 1. Add toolchain in __Settings/Preferences | Build, Execution, Deployment | Toolchains__ adding new ssh connection. Default user is `user` and password is `password`.  
-  ![toolchain config](./img/clion/toolchains.png) 
-  ![ssh config](./img/clion/ssh_config.png)
+    ![toolchain config](./img/clion/toolchains.png) 
+    ![ssh config](./img/clion/ssh_config.png)
 1. Add new CMake profile for container in __Settings/Preferences | Build, Execution, Deployment | CMake__.  
-  ![CMake profile](./img/clion/cmake.png)
+    ![CMake profile](./img/clion/cmake.png)
 1. Configure container's deployment connection and folders mapping in __Settings/Preferences | Build, Execution, Deployment | Deployment__.  
-  ![Deployment connection](./img/clion/deployment_connection.png)
-  ![Deployment folders mappings](./img/clion/deployment_mappings.png)
+    ![Deployment connection](./img/clion/deployment_connection.png)
+    ![Deployment folders mappings](./img/clion/deployment_mappings.png)
 1. Update CMake project.  
-  ![Update CMake project](./img/clion/cmake_reload.png)
+    ![Update CMake project](./img/clion/cmake_reload.png)
 1. After successfully updating your cmake you'll see sc-machine running configurations and problem-solver folder module.
 1. Add make_all configuration for rebuilding sc-machine inside the container and update local dependencies.  
-  ![make_all script adding](./img/clion/make_all.png)
+    ![make_all script adding](./img/clion/make_all.png)
 1. Update sctp-server debug configuration with dependencies and make_all script.  
-  ![sctp-server debug config](./img/clion/sctp_config.png)
+    ![sctp-server debug config](./img/clion/sctp_config.png)
 1. Add breakpoints and start working!
 
 ## Contribute
