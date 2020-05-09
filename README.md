@@ -70,15 +70,15 @@ Run script has additional useful options comparing to Quickstart section. To run
     ```
     git clone https://github.com/ostis-apps/dockerized-ostis
     ```
-1. Checkout to branch according to version you need
-1. Run the script with needed options:
+2. Checkout to branch according to version you need
+3. Run the script with needed options:
     ```bash
     ./run.sh [OPTIONS]
     ```
     See flags with
     ```bash
     run.sh --help
-    ```
+    ```  
 OPTIONS:
     * `--help -h` - Print help message
     * `--port -p` - Set a custom port
@@ -121,14 +121,14 @@ git clone --single-branch --branch 0.5.0 https://github.com/ShunkevichDV/sc-mach
     ```bash
     ./clion_debug/build_clion_debug_image.sh
     ```
-1. Run clion debug container with needed options:
+2. Run clion debug container with needed options:
     ```bash
     ./clion_debug/run_clion_debug.sh [OPTIONS]
     ```
     See flags with
     ```bash
     ./clion_debug/run_clion_debug.sh --help
-    ```
+    ```  
 OPTIONS:
     * `--help -h` - Print help message
     * `--port -p` - Set a custom port
@@ -136,8 +136,8 @@ OPTIONS:
     * `--kb` - Set a custom path to kb directory
     * `--solver` - Set a custom path to problem-solvers deirectory
     * `--startflags --sf` - To set container startup flags(using `--build_kb --sc-web` by default). Usage: `--startflags "[OSTIS FLAGS]"`  
-1. Debug your code! (See project configuration below)
-1. After finishing your work stop and remove debug container:
+3. Debug your code! (See project configuration below)
+4. After finishing your work stop and remove debug container:
     ```bash
     ./clion_debug/stop_clion_debug.sh
     ```
