@@ -107,7 +107,7 @@ To build image locally you will need:
 ## CLion Integration
 
 ### Environement
-1. Clone sc-machine repo
+1. Clone sc-machine repo.
 ```bash
 git clone --single-branch --branch 0.5.0 https://github.com/ShunkevichDV/sc-machine.git
 ```
@@ -136,7 +136,7 @@ OPTIONS:
     `--kb` - Set a custom path to kb directory
     `--solver` - Set a custom path to problem-solvers deirectory
     `--startflags --sf` - To set container startup flags(using `--build_kb --sc-web` by default). Usage: `--startflags "[OSTIS FLAGS]"`  
-1. Debug your code!(See project configuration below)
+1. Debug your code! (See project configuration below)
 1. After finishing your work stop and remove debug container:
     ```bash
     ./clion_debug/stop_clion_debug.sh
