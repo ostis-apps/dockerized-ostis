@@ -55,12 +55,12 @@ Example of the image usage:
 docker run -it -v ~/test/kb:/ostis/kb -v ~/test/problem-solver:/ostis/problem-solver -p 8000:8000 -p 8090:8090 ostis/ostis:0.5.0 sh ostis [OSTIS FLAGS]
 ```
 OSTIS FLAGS:
-  `--help -h` - Print help message
-  `--all -a` - Run all services
-  `--sc-mashine --scm` - Rebuild sc-machine
-  `--build_kb --kb` - Rebuild kb
-  `--sc-web --web` - Run sc-web only
-  `--sctp` - Run sctp only
+  * `--help -h` - Print help message
+  * `--all -a` - Run all services
+  * `--sc-mashine --scm` - Rebuild sc-machine
+  * `--build_kb --kb` - Rebuild kb
+  * `--sc-web --web` - Run sc-web only
+  * `--sctp` - Run sctp only
 
 
 ## Run image locally using script
@@ -80,12 +80,12 @@ Run script has additional useful options comparing to Quickstart section. To run
     run.sh --help
     ```
 OPTIONS:
-    `--help -h` - Print help message
-    `--port -p` - Set a custom port
-    `--app` - Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
-    `--kb` - Set a custom path to kb directory
-    `--solver` - Set a custom path to problem-solvers deirectory
-    `--startflags --sf` - To set container startup flags(using `--all` by default). Usage: `--startflags "[OSTIS FLAGS]"`
+    * `--help -h` - Print help message
+    * `--port -p` - Set a custom port
+    * `--app` - Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
+    * `--kb` - Set a custom path to kb directory
+    * `--solver` - Set a custom path to problem-solvers deirectory
+    * `--startflags --sf` - To set container startup flags(using `--all` by default). Usage: `--startflags "[OSTIS FLAGS]"`
     Example of usage:
     ```bash
     ./run.sh --app ~/ostis-example-app
@@ -106,7 +106,7 @@ To build image locally you will need:
 
 ## CLion Integration
 
-### Environement
+### Environment
 1. Clone sc-machine repo.
 ```bash
 git clone --single-branch --branch 0.5.0 https://github.com/ShunkevichDV/sc-machine.git
@@ -130,12 +130,12 @@ git clone --single-branch --branch 0.5.0 https://github.com/ShunkevichDV/sc-mach
     ./clion_debug/run_clion_debug.sh --help
     ```
 OPTIONS:
-    `--help -h` - Print help message
-    `--port -p` - Set a custom port
-    `--app` - Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
-    `--kb` - Set a custom path to kb directory
-    `--solver` - Set a custom path to problem-solvers deirectory
-    `--startflags --sf` - To set container startup flags(using `--build_kb --sc-web` by default). Usage: `--startflags "[OSTIS FLAGS]"`  
+    * `--help -h` - Print help message
+    * `--port -p` - Set a custom port
+    * `--app` - Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
+    * `--kb` - Set a custom path to kb directory
+    * `--solver` - Set a custom path to problem-solvers deirectory
+    * `--startflags --sf` - To set container startup flags(using `--build_kb --sc-web` by default). Usage: `--startflags "[OSTIS FLAGS]"`  
 1. Debug your code! (See project configuration below)
 1. After finishing your work stop and remove debug container:
     ```bash
