@@ -2,7 +2,7 @@
 
 PORT="8000"
 IMAGE="ostis/clion-remote-cpp-env"
-VERSION="0.5.0"
+VERSION="0.6.0"
 
 # Container paths
 OSTIS_PATH="/ostis"
