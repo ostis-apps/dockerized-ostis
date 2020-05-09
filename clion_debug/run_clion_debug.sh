@@ -1,8 +1,8 @@
 #!/bin/sh
 
 PORT="8000"
-IMAGE="clion/remote-cpp-env"
-VERSION="0.5"
+IMAGE="ostis/clion-remote-cpp-env"
+VERSION="0.5.0"
 
 # Container paths
 OSTIS_PATH="/ostis"
