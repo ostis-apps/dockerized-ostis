@@ -9,7 +9,7 @@ OSTIS_PATH="/ostis"
 OSTIS_SCRIPTS_PATH="${OSTIS_PATH}/scripts"
 
 # Local paths
-APP_PATH=${PWD}
+APP_PATH=${PWD}/..
 KB_PATH="${APP_PATH}/kb"
 PROBLEM_SOLVER_PATH="${APP_PATH}/problem-solver"
 SCRIPTS_PATH="${PWD}/scripts"

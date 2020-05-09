@@ -43,10 +43,6 @@ RUN chmod ugo+rw /ostis/sc-machine/bin
 RUN chmod ugo+rw /ostis/kb
 RUN chmod ugo+rw /ostis/problem-solver
 
-#COPY config/CMakeLists.txt /ostis/sc-machine/
-#WORKDIR /ostis/sc-machine/scripts
-#RUN ./make_all.sh
-
 WORKDIR /ostis/problem-solver
 
 CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config_test_clion"]

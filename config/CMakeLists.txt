@@ -2,8 +2,6 @@ project (sc-machine)
 site_name (www.ostis.net)
 cmake_minimum_required (VERSION 2.8)
 
-SET(CMAKE_BUILD_TYPE Debug)
-
 set(SC_BIN_PATH "${CMAKE_SOURCE_DIR}/bin")
 
 set(SC_MACHINE_ROOT ${CMAKE_CURRENT_LIST_DIR})
@@ -46,7 +44,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
     if(${SC_AUTO_TEST})
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wdeprecated-declarations")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wdeprecated-declarations")
     endif()
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     set(CMAKE_CXX_FLAGS "-std=c++14 -Wall")
@@ -81,7 +79,7 @@ if (${UNIX})
     include(FindPkgConfig)
     pkg_check_modules (GLIB2 REQUIRED glib-2.0)
     pkg_check_modules (GLIB2_MODULE REQUIRED gmodule-2.0)
-
+    
     set (GLIB2_INCLUDE_DIRS "${GLIB2_INCLUDE_DIRS}" "/usr/lib/x86_64-linux-gnu/glib-2.0/include/" "${GLIB2_MODULE}")
     set (GLIB2_LIBRARIES "${GLIB2_LIBRARIES}" "${GLIB2_MODULE_LIBRARIES}")
 
@@ -94,9 +92,9 @@ if (${UNIX})
     pkg_check_modules(LIBCURL REQUIRED libcurl)
 
     message (${LIBCLANG_LIBRARIES})
-
+   
     include_directories("${SC_MACHINE_THIRDPARTY_PATH}"
-            "${SC_MACHINE_ANTRL_DIR}/cpp")
+                        "${SC_MACHINE_ANTRL_DIR}/cpp")
 
     add_definitions(-DSC_PLATFORM_UNIX)
 
@@ -136,7 +134,7 @@ elseif (${WIN32})
     set (LIBCLANG_LIBRARY "libclang")
 
     set (GLIB2_INCLUDE_DIRS "${GLIB_PATH}/include"
-            "${GLIB_PATH}/include/glib")
+                            "${GLIB_PATH}/include/glib")
     set (REDIS_INCLUDE_DIRS "${REDIS_PATH}")
 
     set (LIBCURL_PATH "${SC_MACHINE_THIRDPARTY_PATH}/curl")
@@ -147,33 +145,33 @@ elseif (${WIN32})
     set (BOOST_PYTHON_BIN_PATH "${SC_MACHINE_THIRDPARTY_PATH}/boost")
     set (BOOST_PYTHON_LIBRARY_RELEASE "${BOOST_PYTHON_BIN_PATH}/boost_python3-${MSVC_SUFFIX}-mt-1_64.lib")
     set (BOOST_PYTHON_LIBRARY_DEBUG "${BOOST_PYTHON_BIN_PATH}/boost_python3-${MSVC_SUFFIX}-mt-gd-1_64.lib")
-
+    
 
     include_directories("${SC_MACHINE_ANTRL_DIR}/c"
-            "${SC_MACHINE_ANTRL_DIR}/cpp"
-            "${BOOST_PATH}/include"
-            "${SC_MACHINE_THIRDPARTY_PATH}"
-            "${LIBCURL_INCLUDE_DIRS}")
+                        "${SC_MACHINE_ANTRL_DIR}/cpp"
+                        "${BOOST_PATH}/include"
+                        "${SC_MACHINE_THIRDPARTY_PATH}"
+                        "${LIBCURL_INCLUDE_DIRS}")
 
     link_directories(
-            "${SC_MACHINE_THIRDPARTY_PATH}/clang/lib"
-            "${GLIB_PATH}/lib/v110/x64/Release/dynamic/"
-            "${REDIS_PATH}"
-            "${SC_MACHINE_ANTRL_DIR}"
-            "${PACKAGES_PATH}/boost_filesystem-${MSVC_SUFFIX}.${BOOST_VERSION}/lib/native/address-model-64/lib/"
-            "${PACKAGES_PATH}/boost_system-${MSVC_SUFFIX}.${BOOST_VERSION}/lib/native/address-model-64/lib/"
-            "${PACKAGES_PATH}/boost_program_options-${MSVC_SUFFIX}.${BOOST_VERSION}/lib/native/address-model-64/lib/"
-            "${PACKAGES_PATH}/boost_regex-${MSVC_SUFFIX}.${BOOST_VERSION}/lib/native/address-model-64/lib/"
-    )
+                     "${SC_MACHINE_THIRDPARTY_PATH}/clang/lib"
+                     "${GLIB_PATH}/lib/v110/x64/Release/dynamic/"
+                     "${REDIS_PATH}"
+                     "${SC_MACHINE_ANTRL_DIR}"
+                     "${PACKAGES_PATH}/boost_filesystem-${MSVC_SUFFIX}.${BOOST_VERSION}/lib/native/address-model-64/lib/"
+                     "${PACKAGES_PATH}/boost_system-${MSVC_SUFFIX}.${BOOST_VERSION}/lib/native/address-model-64/lib/"
+                     "${PACKAGES_PATH}/boost_program_options-${MSVC_SUFFIX}.${BOOST_VERSION}/lib/native/address-model-64/lib/"
+                     "${PACKAGES_PATH}/boost_regex-${MSVC_SUFFIX}.${BOOST_VERSION}/lib/native/address-model-64/lib/"
+                     )
 
-
+    
     set (GLIB2_LIBRARIES "gio-2.0.lib" "glib-2.0.lib" "gmodule-2.0.lib" "gobject-2.0.lib" "gthread-2.0.lib")
     if (${MSVC_VERSION} EQUAL "1800")
         set (REDIS_LIBRARIES "hiredis.vc120.lib" "WSock32.lib" "Ws2_32.lib")
     elseif ((${MSVC_VERSION} EQUAL "1900") OR (${MSVC_VERSION} EQUAL "1911"))
         set (REDIS_LIBRARIES "hiredis.vc140.lib" "Win32_Interop.vc140.lib" "WSock32.lib" "Ws2_32.lib")
     endif()
-
+    
     add_definitions(-DSC_PLATFORM_WIN -DHIREDIS_WIN -DBOOST_PYTHON_NO_LIB)
 
     # copy runtime libraries
@@ -210,4 +208,6 @@ add_subdirectory(${SC_MACHINE_ROOT}/sc-fm)
 add_subdirectory(${SC_MACHINE_ROOT}/sc-kpm)
 add_subdirectory(${SC_MACHINE_ROOT}/sc-network)
 add_subdirectory(${SC_MACHINE_ROOT}/tools)
+
+SET(CMAKE_BUILD_TYPE Debug)
 
