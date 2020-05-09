@@ -30,7 +30,7 @@ OPTIONS:
   --port -p         Set a custom port
   --app             Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
   --kb              Set a custom path to kb directory
-  --solver          Set a custom path to problem-solvers deirectory
+  --solver          Set a custom path to problem-solvers directory
   --startflags --sf To set container startup flags(using ${DEFAULT_FLAGS} by default). Usage: --startflags "[OSTIS FLAGS]" (quotes are necessary for multiple flags!)
 
 OSTIS FLAGS:
