@@ -50,49 +50,57 @@ Add ``` -v full_path_to_problem_solver_folder:/ostis/problem-solver``` to specif
 
 Note that C++ agents should be inside **problem-solver/cxx** folder, SCP agents should be inside **problem-solver/scp** folder.
 
-Example of usage:
+Example of the image usage:
+```bash
+docker run -it -v /home/user/test/kb:/ostis/kb -v /home/user/test/problem-solver:/ostis/problem-solver -p 8000:8000 -p 8090:8090 ostis/ostis:scp_stable sh ostis [OSTIS FLAGS]
 ```
-docker run -it -v /home/user01/test/kb:/ostis/kb -v /home/user01/test/problem-solver:/ostis/problem-solver -p 8000:8000 -p 8090:8090 ostis/ostis:0.6.0
-```
-
+OSTIS FLAGS:
+  * `--help -h` - Print help message
+  * `--all -a` - Run all services
+  * `--build_kb --kb` - Rebuild kb
+  * `--sc-web --web` - Run sc-web only
+  * `--sctp` - Run sctp only
 
 ## Run image locally using script
 
 Run script has additional useful options comparing to Quickstart section. To run:
 1. Clone [the repo](https://github.com/ostis-apps/dockerized-ostis):
-    ```
-    git clone https://github.com/ostis-apps/dockerized-ostis
-    ```
+  ```bash
+  git clone https://github.com/ostis-apps/dockerized-ostis
+  ```
 2. Checkout to branch according to version you need
-3. Run the script with options (if needed):
-    ```bash
-    ./run.sh
-    ```
-
-Available options to use:
-* `--help` or `-h` option to see all available options with description
-* `--port` or `-p` option to set a custom port
-* `--kb` option to set custom knowledge base source folder path
-* `--solver` option to set custom problem solver source folder path
-* `--app` option to set an absolute path to the app directory. Note that the app folder structure should be same as in the [ostis-example-app](https://github.com/ostis-apps/ostis-example-app/tree/0.5.0). It should contain kb and problem-solver folders inside
-
-Example of usage:
-```bash
-./run.sh --app /home/user01/test/ostis-example-app
-```
+3. Run the script with needed options:
+  ```bash
+  ./run.sh [OPTIONS]
+  ```
+  See flags with
+  ```bash
+  run.sh --help
+  ```
+  OPTIONS:  
+  * `--help -h` - Print help message
+  * `--port -p` - Set a custom port
+  * `--app` - Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
+  * `--kb` - Set a custom path to kb directory
+  * `--solver` - Set a custom path to problem-solvers directory
+  * `--startflags --sf` - To set container startup flags(using `--all` by default). Usage: `--startflags "[OSTIS FLAGS]"` (quotes are necessary for multiple flags!)
+  Example of usage:
+  ```bash
+  ./run.sh --app ~/ostis-example-app
+  ```
 
 ## Building image locally
 
 To build image locally you will need:
 1. Clone [the repo](https://github.com/ostis-apps/dockerized-ostis):
-    ```
-    git clone https://github.com/ostis-apps/dockerized-ostis
-    ```
-2. Checkout to branch according to version you need
-3. Run build image script:
-    ```bash
-    ./build_image.sh
-    ```
+  ```bash
+  git clone https://github.com/ostis-apps/dockerized-ostis
+  ```
+1. Checkout to branch according to version you need
+1. Run build image script:
+  ```bash
+  ./build_image.sh
+  ```
 
 ## Contribute
 
