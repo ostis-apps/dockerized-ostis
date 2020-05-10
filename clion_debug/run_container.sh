@@ -1,8 +1,7 @@
 #!/bin/sh
 
-PORT_NEW="8090"
-PORT_OLD="8000"
-IMAGE="ostis/ostis"
+PORT="8000"
+IMAGE="ostis/clion-remote-cpp-env"
 VERSION="0.6.0"
 
 # Container paths
@@ -10,30 +9,27 @@ OSTIS_PATH="/ostis"
 OSTIS_SCRIPTS_PATH="${OSTIS_PATH}/scripts"
 
 # Local paths
-APP_PATH=${PWD}
+APP_PATH=${PWD}/..
 KB_PATH="${APP_PATH}/kb"
 PROBLEM_SOLVER_PATH="${APP_PATH}/problem-solver"
-SCRIPTS_PATH="${APP_PATH}/scripts"
+SCRIPTS_PATH="${PWD}/scripts"
 
 SCRIPT_FLAGS=""
+DEFAULT_FLAGS="--build_kb --sc-web"
 
 help()
 {
   cat << EOM
-This is a tool for running container with OSTIS.
-
+This is a tool for running clion OSTIS debug container container.
 USAGE:
   ./run.sh [OPTIONS]
-
 OPTIONS:
   --help -h         Print help message
-  --port -p         Set a custom port for new client
-  --port_old        Set a custom port for old client
+  --port -p         Set a custom port
   --app             Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
   --kb              Set a custom path to kb directory
-  --solver          Set a custom path to problem-solvers directory
-  --startflags --sf To set container startup flags(using --all by default). Usage: --startflags "[OSTIS FLAGS]"
-
+  --solver          Set a custom path to problem-solvers deirectory
+  --startflags --sf To set container startup flags(using ${DEFAULT_FLAGS} by default). Usage: --startflags "[OSTIS FLAGS]" (quotes are necessary for multiple flags!)
 OSTIS FLAGS:
   --help -h             Print help message
   --all -a              Run all services
@@ -58,17 +54,7 @@ do
         help
         exit 1
       else
-        PORT_NEW="$2"
-      fi
-      ;;
-    --port_old)
-      if [ -z "$2" ]
-      then
-        echo "Cannot handle empty port value!"
-        help
-        exit 1
-      else
-        PORT_OLD="$2"
+        PORT="$2"
       fi
       ;;
     --app)
@@ -118,16 +104,16 @@ done
 
 if [ -z "${SCRIPT_FLAGS}" ]
 then
-  SCRIPT_FLAGS="--all"
+  SCRIPT_FLAGS=${DEFAULT_FLAGS}
 fi
 
-docker run -t -i \
+docker run -it --cap-add sys_ptrace -p127.0.0.1:2222:22 --name clion_remote_env \
   -v ${KB_PATH}:${OSTIS_PATH}/kb \
   -v ${PROBLEM_SOLVER_PATH}:${OSTIS_PATH}/problem-solver \
-  -p ${PORT_NEW}:8090 \
-  -p ${PORT_OLD}:8000 \
+  -p ${PORT}:8000 \
   ${IMAGE}:${VERSION} \
-  sh ${OSTIS_SCRIPTS_PATH}/ostis ${SCRIPT_FLAGS}
+  sh -c "${OSTIS_SCRIPTS_PATH}/ostis ${SCRIPT_FLAGS} & \
+  /usr/sbin/sshd -D -e -f /etc/ssh/sshd_config_test_clion"
 
 exit
 
