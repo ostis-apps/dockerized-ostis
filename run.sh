@@ -15,6 +15,7 @@ PROBLEM_SOLVER_PATH="${APP_PATH}/problem-solver"
 SCRIPTS_PATH="${APP_PATH}/scripts"
 
 SCRIPT_FLAGS=""
+DEFAULT_FLAGS="--all"
 
 help()
 {
@@ -29,8 +30,8 @@ OPTIONS:
   --port -p         Set a custom port
   --app             Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
   --kb              Set a custom path to kb directory
-  --solver          Set a custom path to problem-solvers deirectory
-  --startflags --sf To set container startup flags(using --all by default). Usage: --startflags "[OSTIS FLAGS]"
+  --solver          Set a custom path to problem-solvers directory
+  --startflags --sf To set container startup flags(using ${DEFAULT_FLAGS} by default). Usage: --startflags "[OSTIS FLAGS]" (quotes are necessary for multiple flags!)
 
 OSTIS FLAGS:
   --help -h             Print help message
@@ -106,7 +107,7 @@ done
 
 if [ -z "${SCRIPT_FLAGS}" ]
 then
-  SCRIPT_FLAGS="--all"
+  SCRIPT_FLAGS="${DEFAULT_FLAGS}"
 fi
 
 docker run -t -i \
