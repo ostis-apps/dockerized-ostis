@@ -23,15 +23,15 @@ Current versions:
 You can run the OSTIS container like so:
 * for `scp_stable` version:
   ```bash
-  docker run -it -p 8000:8000 ostis/ostis:scp_stable
+  docker run -it -p 8000:8000 ostis/ostis:scp_stable sh ostis --all
   ```
 * for `0.5.0` version:
   ```bash
-  docker run -it -p 8000:8000 ostis/ostis:0.5.0
+  docker run -it -p 8000:8000 ostis/ostis:0.5.0 sh ostis --all
   ```
 * for `0.6.0` version:
   ```bash
-  docker run -it -p 8000:8000 -p 8090:8090 ostis/ostis:0.6.0
+  docker run -it -p 8000:8000 -p 8090:8090 ostis/ostis:0.6.0 sh ostis --all
   ```
 Open `localhost:8000` in your browser to see web interface. For `0.6.0` version new interface version will be available on `localhost:8090`.
 
@@ -57,7 +57,7 @@ docker run -it -v ~/test/kb:/ostis/kb -v ~/test/problem-solver:/ostis/problem-so
 OSTIS FLAGS:
   * `--help -h` - Print help message
   * `--all -a` - Run all services
-  * `--sc-mashine --scm` - Rebuild sc-machine
+  * `--sc-machine --scm` - Rebuild sc-machine
   * `--build_kb --kb` - Rebuild kb
   * `--sc-web --web` - Run sc-web only
   * `--sctp` - Run sctp only
@@ -76,7 +76,7 @@ Run script has additional useful options comparing to Quickstart section. To run
   ```
   See flags with
   ```bash
-  run.sh --help
+  ./run.sh --help
   ```
   OPTIONS:  
   * `--help -h` - Print help message
