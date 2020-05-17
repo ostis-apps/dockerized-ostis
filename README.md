@@ -159,9 +159,9 @@ To build image locally you will need:
 1. Configure container's deployment connection and folders mapping in __Settings/Preferences | Build, Execution, Deployment | Deployment__.  
   ![Deployment connection](./img/clion/deployment_connection.png)
   ![Deployment folders mappings](./img/clion/deployment_mappings.png)
-1. Update CMake project.  
-  ![Update CMake project](./img/clion/cmake_reload.png)
-1. After successfully updating your CMake project you'll see sc-machine running configurations and problem-solver folder module.
+1. Reload CMake project(If you don't have CMake Tab, you can find the option in __File | Reload CMake Project__).  
+  ![Reload CMake project](./img/clion/cmake_reload.png)
+1. After successfully reloading your CMake project you'll see sc-machine running configurations and problem-solver folder module.
 1. Add make_all configuration for rebuilding sc-machine inside the container and update local dependencies. The script works properly only if you set up your docker to work without sudo. See instructions [here](https://docs.docker.com/engine/install/linux-postinstall/).  
   ![make_all script adding](./img/clion/make_all.png)
 1. Update sctp-server debug configuration with dependencies and make_all script.  
