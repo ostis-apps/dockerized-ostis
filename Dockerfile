@@ -21,7 +21,7 @@ WORKDIR /ostis
 ## Clone projects
 RUN git clone --single-branch --branch master https://github.com/ShunkevichDV/ostis.git . && \
     git clone --single-branch --branch scp_stable https://github.com/ShunkevichDV/sc-machine.git && \
-    git clone --single-branch --branch master https://github.com/Ivan-Zhukau/sc-web.git && \
+    git clone --single-branch --branch master https://github.com/ostis-apps/sc-web.git && \
     git clone --single-branch --branch master https://github.com/ShunkevichDV/ims.ostis.kb.git
 
 ### sc-machine
