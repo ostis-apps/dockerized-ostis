@@ -17,7 +17,7 @@ WORKDIR /ostis
 ## Clone projects
 RUN git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/ostis.git . && \
     git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/sc-machine.git && \
-    git clone --single-branch --branch 0.6.0 https://github.com/MikhailSadovsky/sc-web.git && \
+    git clone --single-branch --branch 0.6.0 https://github.com/ostis-apps/sc-web.git && \
     git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/ims.ostis.kb.git
 
 ### sc-machine
