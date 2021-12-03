@@ -33,7 +33,9 @@ RUN sudo ./make_all.sh
 WORKDIR /ostis/sc-web/scripts
 
 #Install sc-web dependencies
-RUN sudo pip install --default-timeout=100 future tornado sqlalchemy redis==2.9 numpy configparser
+RUN sudo pip2 install --upgrade --default-timeout=100 setuptools
+RUN sudo pip2 install --default-timeout=100 wheel future
+RUN sudo pip2 install --default-timeout=100 tornado sqlalchemy redis==2.9 numpy configparser
 RUN sudo apt-get update && apt-get --no-install-recommends install -y nodejs-dev node-gyp npm libssl1.0-dev && sudo rm -rf /var/lib/apt/lists/*
 RUN sudo npm install -g grunt-cli && npm install && sudo grunt build
 ## Copy server.conf
