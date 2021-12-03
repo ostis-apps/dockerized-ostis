@@ -9,15 +9,15 @@ RUN apt-get update && apt-get install -y sudo
 USER root
 
 # Getting dependencies
-RUN sudo apt-get update && apt-get -y install git redis-server python-pip python3 qtbase5-dev curl \
+RUN sudo apt-get update && apt-get -y install git redis-server python3-pip python3 qtbase5-dev openjdk-11-jre openjdk-11-jdk curl \
     && sudo rm -rf /var/lib/apt/lists/*
 
 WORKDIR /ostis
 
 ## Clone projects
-RUN git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/ostis.git . && \
+RUN git clone --single-branch --branch 0.6.0 https://github.com/ostis-dev/ostis-web-platform.git . && \
     git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/sc-machine.git && \
-    git clone --single-branch --branch 0.6.0 https://github.com/ostis-apps/sc-web.git && \
+    git clone --single-branch --branch 0.6.0 https://github.com/ostis-dev/sc-web.git && \
     git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/ims.ostis.kb.git
 
 ### sc-machine
@@ -30,7 +30,7 @@ RUN python3Version=$(python3 -c 'import sys; print(".".join(map(str, sys.version
 
 WORKDIR /ostis/sc-machine
 
-RUN pip3 install -r requirements.txt
+RUN python3 -m pip install -r requirements.txt
 
 WORKDIR /ostis/sc-machine/scripts
 RUN sudo ./make_all.sh
@@ -48,10 +48,16 @@ RUN sudo yarn
 WORKDIR /ostis/sc-web/scripts   
 
 #Install sc-web dependencies
-RUN sudo pip install --default-timeout=100 future tornado sqlalchemy redis==2.9 numpy configparser && \
-    sudo apt-get update && apt-get --no-install-recommends install -y nodejs-dev node-gyp npm libssl1.0-dev && \
-    sudo rm -rf /var/lib/apt/lists/* && sudo npm install -g grunt-cli && npm install && sudo grunt build
-## Copy server.conf
+RUN sudo apt-get update && \
+    #workaround for python-rocksdb to build on outdated wheel and setuptools of 18.04 
+    echo y | python3 -m pip install -U pip setuptools wheel tqdm && \ 
+    #workadround to install node and npm (node-gyp doesn't install itself as a dep on 18.04) 
+    sudo apt-get install -y nodejs-dev node-gyp libssl1.0-dev && \ 
+    sudo ./install_deps_ubuntu.sh && \
+    sudo ./install_nodejs_dependence.sh && \
+    npm install && sudo grunt build
+
+# Copy server.conf
 WORKDIR /ostis/scripts
 RUN sudo cp -f ../config/server.conf ../sc-web/server/
 
@@ -64,7 +70,7 @@ RUN sudo mkdir kb && sudo mv ./ims.ostis.kb/ui/ui_start_sc_element.scs ./kb/ui_s
 # Include kpm
 WORKDIR /ostis/sc-machine
 RUN sudo apt-get update && sudo apt-get --no-install-recommends install -y libcurl4-openssl-dev && \
-    echo 'add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)' | sudo tee -a ./CMakeLists.txt
+    echo 'if (EXISTS "${SC_MACHINE_ROOT}/../problem-solver/cxx/CMakeLists.txt")\n add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)\n endif()' | sudo tee -a ./CMakeLists.txt
 
 # Copy start container script
 COPY scripts/ostis /ostis/scripts/
