@@ -3,7 +3,7 @@ FROM debian:bullseye-slim as base
 USER root
 
 #runtime dependencies required for building cxx problem-solvers and scripts
-RUN apt update && apt --no-install-recommends -y install python3-pip python3.9 libpython3.9 curl g++ cmake 
+RUN apt update && apt --no-install-recommends -y install python3-pip python3.9 libpython3.9 curl g++ cmake make
 #Libs required in runtime
 RUN apt --no-install-recommends -y install librocksdb6.11 libboost-system1.74.0 libboost-filesystem1.74.0 python3-rocksdb libboost-python1.74.0 libboost-program-options1.74.0 libglib2.0-0 libqt5network5
 
