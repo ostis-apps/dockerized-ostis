@@ -1,88 +1,82 @@
-FROM ubuntu:18.04
-
-#
-# Creating image
-#
-# Add sudo user
-RUN apt-get update && apt-get install -y sudo
+FROM debian:bullseye-slim as base 
 
 USER root
 
-# Getting dependencies
-RUN sudo apt-get update && apt-get -y install git redis-server python3-pip python3 qtbase5-dev openjdk-11-jre openjdk-11-jdk curl \
-    && sudo rm -rf /var/lib/apt/lists/*
+#runtime dependencies required for building cxx problem-solvers and scripts
+RUN apt update && apt --no-install-recommends -y install python3-pip python3.9 libpython3.9 curl g++ cmake 
+#Libs required in runtime
+RUN apt --no-install-recommends -y install librocksdb6.11 libboost-system1.74.0 libboost-filesystem1.74.0 python3-rocksdb libboost-python1.74.0 libboost-program-options1.74.0 libglib2.0-0 libqt5network5
+
+
+#Install sc-web runtime dependencies
+RUN python3 -m pip install --default-timeout=100 future tornado sqlalchemy numpy configparser progress 
+
+#Installing python runtime deps for sc-machine
+RUN python3 -m pip install termcolor tornado 
+#Derived from debian and not "base" image because any change in base would cache bust the build environment
+FROM debian:bullseye-slim AS buildenv
+#Install build-time deps
+RUN apt update && apt -y install qtbase5-dev git librocksdb-dev libglib2.0-dev libboost-system-dev libboost-filesystem-dev libboost-program-options-dev make cmake antlr gcc g++ llvm libcurl4-openssl-dev libclang-dev libboost-python-dev python3-dev python3-pip curl python3-rocksdb redis-server 
 
 WORKDIR /ostis
 
+
 ## Clone projects
-RUN git clone --single-branch --branch 0.6.0 https://github.com/ostis-dev/ostis-web-platform.git . && \
-    git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/sc-machine.git && \
-    git clone --single-branch --branch 0.6.0 https://github.com/ostis-dev/sc-web.git && \
-    git clone --single-branch --branch 0.6.0 https://github.com/ShunkevichDV/ims.ostis.kb.git
+RUN git clone --single-branch --branch 0.6.0 --depth 1 https://github.com/ostis-dev/ostis-web-platform.git . && \
+    git clone --single-branch --branch 0.6.0 --depth 1 https://github.com/ShunkevichDV/sc-machine.git && \
+	git clone --single-branch --branch 0.6.0 --depth 1 https://github.com/ostis-dev/sc-web.git && \
+	git clone --single-branch --branch 0.6.0 --depth 1 https://github.com/ShunkevichDV/ims.ostis.kb.git
 
 ### sc-machine
-WORKDIR /ostis/sc-machine/scripts
-RUN python3Version=$(python3 -c 'import sys; print(".".join(map(str, sys.version_info[:2])))') && \
-    sudo sed -i -e "s/python3.5-dev/python${python3Version}-dev/" ./install_deps_ubuntu.sh && \
-    sudo sed -i -e "s/python3.5-dev/python${python3Version}/" ./install_deps_ubuntu.sh && \
-    sudo apt-get update && echo y | sudo ./install_deps_ubuntu.sh && \
-    sudo rm -rf /var/lib/apt/lists/*
-
 WORKDIR /ostis/sc-machine
 
-RUN python3 -m pip install -r requirements.txt
-
+#Building sc-machine
 WORKDIR /ostis/sc-machine/scripts
-RUN sudo ./make_all.sh
-RUN cat ../bin/config.ini | sudo tee -a ../../config/sc-web.ini
+RUN ./make_all.sh
+RUN cat ../bin/config.ini | tee -a ../../config/sc-web.ini
 
-### sc-server web
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
-    sudo apt-get update && sudo apt-get install -y yarn && sudo rm -rf /var/lib/apt/lists/*
-
-WORKDIR /ostis/sc-machine/web/client
-RUN sudo yarn
-
-### sc-web
-WORKDIR /ostis/sc-web/scripts   
-
-#Install sc-web dependencies
-RUN sudo apt-get update && \
-    #workaround for python-rocksdb to build on outdated wheel and setuptools of 18.04 
-    echo y | python3 -m pip install -U pip setuptools wheel tqdm && \ 
-    #workadround to install node and npm (node-gyp doesn't install itself as a dep on 18.04) 
-    sudo apt-get install -y nodejs-dev node-gyp libssl1.0-dev && \ 
-    sudo ./install_deps_ubuntu.sh && \
-    sudo ./install_nodejs_dependence.sh && \
-    npm install && sudo grunt build
+###File operations
+# Include kb
+WORKDIR /ostis
+RUN mkdir kb && mv ./ims.ostis.kb/ui/ui_start_sc_element.scs ./kb/ui_start_sc_element.scs && \
+    mv ./ims.ostis.kb/ui/menu ./kb && echo "kb" | tee -a ./repo.path && mkdir -p problem-solver/cxx && \
+    echo "problem-solver" | tee -a ./repo.path
 
 # Copy server.conf
 WORKDIR /ostis/scripts
-RUN sudo cp -f ../config/server.conf ../sc-web/server/
+RUN cp -f ../config/server.conf ../sc-web/server/
 
-# Include kb
-WORKDIR /ostis
-RUN sudo mkdir kb && sudo mv ./ims.ostis.kb/ui/ui_start_sc_element.scs ./kb/ui_start_sc_element.scs && \
-    sudo mv ./ims.ostis.kb/ui/menu ./kb && echo "kb" | sudo tee -a ./repo.path && sudo mkdir -p problem-solver/cxx && \
-    echo "problem-solver" | sudo tee -a ./repo.path
+#Deleting the new web interface as we're not using it
+RUN rm -rf /ostis/sc-machine/web
 
-# Include kpm
-WORKDIR /ostis/sc-machine
-RUN sudo apt-get update && sudo apt-get --no-install-recommends install -y libcurl4-openssl-dev && \
-    echo 'if (EXISTS "${SC_MACHINE_ROOT}/../problem-solver/cxx/CMakeLists.txt")\n add_subdirectory(${SC_MACHINE_ROOT}/../problem-solver/cxx ${SC_MACHINE_ROOT}/bin)\n endif()' | sudo tee -a ./CMakeLists.txt
+### sc-web
+FROM node:16-alpine AS web-buildenv
+
+COPY --from=buildenv /ostis/sc-web /sc-web
+WORKDIR /sc-web   
+
+#Install sc-web build-time dependencies
+RUN npm install -g grunt-cli
+#Build sc-web
+RUN npm install && grunt build
+
+
+#Gathering all artifacts together
+FROM base AS final
+
+COPY --from=buildenv /ostis /ostis
+COPY --from=web-buildenv /sc-web /ostis/sc-web
+
 
 # Copy start container script
 COPY scripts/ostis /ostis/scripts/
-
-WORKDIR /ostis/scripts
 
 #
 # Image config
 #
 LABEL version="0.6.0"
 
-EXPOSE 8090
 EXPOSE 8000
 EXPOSE 55770
-
+ENTRYPOINT ["/ostis/scripts/ostis"]
+CMD ["--all"]
