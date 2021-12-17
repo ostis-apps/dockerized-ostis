@@ -9,10 +9,10 @@ RUN apt --no-install-recommends -y install librocksdb6.11 libboost-system1.74.0 
 
 
 #Install sc-web runtime dependencies
-RUN python3 -m pip install --default-timeout=100 future tornado sqlalchemy numpy configparser progress 
+RUN python3 -m pip install --no-cache-dir --default-timeout=100 future tornado sqlalchemy numpy configparser progress 
 
 #Installing python runtime deps for sc-machine
-RUN python3 -m pip install termcolor tornado 
+RUN python3 -m pip install --no-cache-dir termcolor tornado 
 #Derived from debian and not "base" image because any change in base would cache bust the build environment
 FROM debian:bullseye-slim AS buildenv
 #Install build-time deps
