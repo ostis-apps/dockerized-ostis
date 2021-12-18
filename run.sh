@@ -32,6 +32,7 @@ OPTIONS:
   --app             Set a custom path to the app directory(By default, it is expected, that inside the app you have all default directories for kb, problem-solver etc)
   --kb              Set a custom path to kb directory
   --solver          Set a custom path to problem-solvers directory
+  --compile -c      Compile and run specified program
   --startflags --sf To set container startup flags(using --all by default). Usage: --startflags "[OSTIS FLAGS]"
 
 OSTIS FLAGS:
@@ -44,74 +45,92 @@ OSTIS FLAGS:
 EOM
 }
 
-while [ $# -ne 0 ]
+for (( i=1; i<=$#; i++))
 do
-  case "$1" in
+  case "${!i}" in
     --help | -h)
       help
       exit 0
       ;;
     --port | -p)
-      if [ -z "$2" ]
+      j=$((i+1))
+      if [ -z "${!j}" ]
       then
         echo "Cannot handle empty port value!"
         help
         exit 1
       else
-        PORT_NEW="$2"
+          PORT_NEW="${!j}"
       fi
       ;;
     --port_old)
-      if [ -z "$2" ]
+      j=$((i+1))
+      if [ -z "${!j}" ]
       then
         echo "Cannot handle empty port value!"
         help
         exit 1
       else
-        PORT_OLD="$2"
+        PORT_OLD="${!j}"
       fi
       ;;
     --app)
-      if [ -z "$2" ]
+      j=$((i+1))
+      if [ -z "${!j}" ]
       then
         echo "Cannot handle empty app path value!"
         help
         exit 1
       else
-        APP_PATH="$2"
+        APP_PATH="${!j}"
         KB_PATH="${APP_PATH}/kb"
         PROBLEM_SOLVER_PATH="${APP_PATH}/problem-solver"
       fi
       ;;
     --kb)
-      if [ -z "$2" ]
+      j=$((i+1))
+      if [ -z "${!j}" ]
       then
         echo "Cannot handle empty kb path value!"
         help
         exit 1
       else
-        KB_PATH="$2"
+        KB_PATH="${!j}"
       fi
       ;;
     --solver)
-      if [ -z "$2" ]
+        j=$((i+1))
+        if [ -z "${!j}" ]
       then
         echo "Cannot handle empty problem-solver path value!"
         help
         exit 1
       else
-        PROBLEM_SOLVER_PATH="$2"
+          PROBLEM_SOLVER_PATH="${!j}"
       fi
       ;;
     --startflags | --sf)
-      if [ -z "$2" ]
+      j=$((i+1))
+      if [ -z "${!j}" ]
       then
         echo "Cannot handle empty startup flags!"
         help
         exit 1
       else
-        SCRIPT_FLAGS="$2"
+        SCRIPT_FLAGS="${!j}"
       fi
+      ;;
+    --compile | -c)
+      j=$((i+1))
+      if [ -z "${!j}" ]
+      then
+        echo "No argument given!"
+        help
+        exit 1
+      else
+        SCRIPT_FLAGS="-c ${!j}"
+      fi
+      ;;
     esac
     shift
 done
@@ -127,7 +146,6 @@ docker run -t -i \
   -p ${PORT_NEW}:8090 \
   -p ${PORT_OLD}:8000 \
   ${IMAGE}:${VERSION} \
-  sh ${OSTIS_SCRIPTS_PATH}/ostis ${SCRIPT_FLAGS}
+   ${SCRIPT_FLAGS}
 
 exit
-
