@@ -45,7 +45,7 @@ OPTIONS:
   --build_kb --kb       Rebuild kb
   --sc-web --web        Run sc-web only
   --sctp                Run sctp only
-  --compile -c          Compile and run specified program
+  --compile -c          Compile and run specified program. Usage: --compile <executable name>
 EOM
 }
 
