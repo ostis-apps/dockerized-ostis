@@ -140,7 +140,7 @@ then
   SCRIPT_FLAGS="--all"
 fi
 
-docker run -t -i \
+docker run -t -i --rm \
   -v ${KB_PATH}:${OSTIS_PATH}/kb \
   -v ${PROBLEM_SOLVER_PATH}:${OSTIS_PATH}/problem-solver \
   -p ${PORT_NEW}:8090 \
