@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 make_all()
 {
@@ -20,12 +20,16 @@ sctp()
 
 sc_web()
 {
-  cd /ostis/sc-machine/web/client
-  yarn run webpack-dev
-
   cd /ostis/scripts
-  echo "\n\e[1;32mStarting the old sc-web on http://localhost:8000 and the new on http://localhost:8090...\e[0m\n"
+  echo "\n\e[1;32mStarting the old sc-web on http://localhost:8000\e[0m\n"
   ./run_scweb.sh &
+}
+
+compile()
+{
+  cd /ostis/problem-solver/cxx
+  cmake -B build
+  make -C build
 }
 
 help()
@@ -41,6 +45,7 @@ OPTIONS:
   --build_kb --kb       Rebuild kb
   --sc-web --web        Run sc-web only
   --sctp                Run sctp only
+  --compile -c          Compile and run specified program. Usage: --compile <executable name>
 EOM
 }
 
@@ -53,7 +58,6 @@ do
       ;;
     --all | -a)
       build_kb
-      make_all
       sctp
       sc_web
       ;;
@@ -69,6 +73,11 @@ do
     --sctp)
       sctp
       ;;
+    --compile | -c)
+      build_kb
+      compile
+      /ostis/sc-machine/bin/$2
+      ;;
     esac
     shift
 done
@@ -76,4 +85,3 @@ done
 wait
 
 exit
-
