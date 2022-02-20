@@ -79,4 +79,4 @@ LABEL version="0.6.0"
 EXPOSE 8000
 EXPOSE 55770
 ENTRYPOINT ["/ostis/scripts/ostis"]
-CMD ["--all"]
+# CMD ["--all"]
