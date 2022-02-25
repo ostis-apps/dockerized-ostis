@@ -58,47 +58,10 @@ if __name__ == '__main__':
     if args.solver:
         PROBLEM_SOLVER_PATH = args.solver
 
-    os.system(f'docker run -d -t -i --rm \
+    os.system(f'docker run -t -i --rm \
     --name ostis\
     -v {KB_PATH}:{OSTIS_PATH}/kb \
     -v {PROBLEM_SOLVER_PATH}:{OSTIS_PATH}/problem-solver \
     -p {PORT_NEW}:8090 \
     -p {PORT_OLD}:8000 \
     {IMAGE}:{VERSION}')
-
-
-    while True:
-        command = input('> ')
-        command = command.split()
-        if command[0] in ['help', 'h']:
-            help()
-
-        elif command[0] in ['all', 'a']:
-            os.system('docker exec ostis /ostis/scripts/ostis --all')
-
-        elif command[0] in ['sc-machine', 'm']:
-            os.system('docker exec ostis /ostis/scripts/ostis --sc-machine')
-
-        elif command[0] in ['build_kb', 'kb']:
-            os.system('docker exec ostis /ostis/scripts/ostis --kb')
-
-        elif command[0] in ['sc-web', 'web']:
-            os.system('docker exec ostis /ostis/scripts/ostis --web')
-
-        elif command[0] in ['sctp']:
-            os.system('docker exec ostis /ostis/scripts/ostis --sctp')
-
-        elif command[0] in ['compile', 'c']:
-            if len(command) != 2:
-                print('Unable to read arguments')
-            else:
-                os.system(f'docker exec ostis /ostis/scripts/ostis -c {command[1]}')
-
-        elif command[0] in ['quit', 'q']:
-            print('Shutting down ostis container')
-            os.system('docker stop ostis')
-            quit()
-
-        else:
-            print(f'Unknown option \'{command[0]}\'')
-            help()

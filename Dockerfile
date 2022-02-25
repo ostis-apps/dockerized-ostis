@@ -78,5 +78,6 @@ LABEL version="0.6.0"
 
 EXPOSE 8000
 EXPOSE 55770
-ENTRYPOINT ["/ostis/scripts/ostis"]
+WORKDIR /ostis/
+ENTRYPOINT ["/bin/bash"]
 # CMD ["--all"]
